@@ -12,7 +12,6 @@ public class Item {
 
 	private char itemCategory;
 
-	private ItemDescription itemDescription;
 
 	public Item Item(int itemID) {
 		return null;

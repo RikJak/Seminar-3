@@ -10,8 +10,8 @@ public class Discount {
 		return null;
 	}
 
-	public class Discount {
-
+	public Discount Discount() {
+            return null;
 	}
 
 }

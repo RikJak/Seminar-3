@@ -14,8 +14,6 @@ public class Sale {
 
 	private SaleInformation saleInformation;
 
-	private TotalPrice totalPrice;
-
 	private CashRegister cashRegister;
 
 	public Sale Sale(CashRegister cashRegister) {

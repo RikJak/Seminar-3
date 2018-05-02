@@ -16,8 +16,8 @@ public class Sale {
 
 	private CashRegister cashRegister;
 
-	public Sale Sale(CashRegister cashRegister) {
-		return null;
+	public Sale(CashRegister cashRegister) {
+		//return null;
 	}
 
 	private void setTimeOfSale() {
@@ -36,9 +36,6 @@ public class Sale {
 		return null;
 	}
 
-	public void operation6() {
-
-	}
 
 	public AmountOfMoney payForSale(AmountOfMoney amountPaid) {
 		return null;

@@ -2,8 +2,15 @@ package Integration;
 
 public class ItemDescription {
 
-	private char itemDescription;
+	private String itemDescription;
 
-	private int price;
-
+	//private int price;
+        
+        public ItemDescription(String description){
+            itemDescription = description;
+        }
+        
+        public String toString(){
+            return itemDescription;
+        }
 }

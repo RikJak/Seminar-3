@@ -14,12 +14,12 @@ public class CashRegister {
 		return null;
 	}
 
-	public void updateBalance() {
-
+	private void updateBalance() {
+            
 	}
 
-	public void CashRegister(AmountOfMoney balance) {
-
+	public CashRegister(AmountOfMoney balance) {
+            
 	}
 
 }

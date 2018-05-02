@@ -7,11 +7,15 @@ public class AmountOfMoney {
 	private double amount;
 
 	public double getAmount() {
-		return 0;
+		return amount;
 	}
 
 	public void updateAmount(double newAmount) {
 
 	}
+        
+        public AmountOfMoney(double startingAmount){
+            amount = startingAmount;
+        }
 
 }

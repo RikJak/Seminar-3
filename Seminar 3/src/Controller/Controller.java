@@ -1,12 +1,7 @@
 package Controller;
 
-import Model.Sale;
-import Integration.RegistryCreator;
-import Model.Reciept;
-import Integration.Discount;
-import Model.SaleDTO;
-import Model.TotalPrice;
-import Integration.AmountOfMoney;
+import Integration.*;
+import Model.*;
 
 public class Controller {
 
@@ -17,17 +12,24 @@ public class Controller {
 	private Reciept reciept;
 
 	private Discount discount;
+        
+        private CashRegister cashRegister;
+        
+        private AmountOfMoney startingBalance = new AmountOfMoney(100);
 
 	public void startNewSale() {
-
+            sale = new Sale(cashRegister);
 	}
 
-	public Controller Controller(RegistryCreator registers) {
-		return null;
+	public Controller(RegistryCreator registers) {
+                registryCreator  = registers;
+                cashRegister = new CashRegister(startingBalance);
 	}
 
 	public SaleDTO scanItem(int quantity, int itemID) {
-		return null;
+		Item scannedItem = registryCreator.getItemRegistry().getItem(itemID);
+                
+            return sale.sellItem(scannedItem);
 	}
 
 	public TotalPrice finalizeSale() {

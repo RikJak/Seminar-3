@@ -1,8 +1,12 @@
 package Integration;
+import java.util.*;
+/*
 
+
+*/
 public class Discount {
 
-	private int elligibleID;
+	private HashMap<Integer,Integer> elligibleID;
 
 	private int discountRate;
 

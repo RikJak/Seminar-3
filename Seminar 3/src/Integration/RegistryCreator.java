@@ -7,15 +7,17 @@ public class RegistryCreator {
 	private ExternalSystems externalSystems;
 
 	public RegistryCreator RegistryCreator() {
-		return null;
+            itemRegistry = new ItemRegistry();
+            externalSystems = new ExternalSystems();
+		return this;
 	}
 
 	public ItemRegistry getItemRegistry() {
-		return null;
+		return itemRegistry;
 	}
 
 	public ExternalSystems getExternalSystems() {
-		return null;
+		return externalSystems;
 	}
 
 }

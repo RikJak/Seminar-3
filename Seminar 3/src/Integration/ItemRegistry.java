@@ -4,16 +4,16 @@ import java.util.*;
 
 public class ItemRegistry {
 
-	private HashMap<Integer,Item> itemRegistry;
+	private HashMap<ItemIdentifier,Item> itemRegistry;
 
 	public Item getItem(int itemID) {
-		return itemRegistry.get(itemID);
+		return itemRegistry.get(new ItemIdentifier(itemID));
                 
 	}
 
 	public ItemRegistry(){
 		
-            itemRegistry = new HashMap<Integer,Item>(10);
+            itemRegistry = new HashMap<>(10);
                 Item car = new Item(111,new ItemDescription("This is a car"),new AmountOfMoney(10000),"Vehicle");
 
             itemRegistry.put(car.getItemID(), car);

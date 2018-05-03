@@ -2,7 +2,7 @@ package Integration;
 
 public class Item {
 
-	private int itemID;
+	private ItemIdentifier itemID;
 
 	private ItemDescription itemDescription;
 
@@ -14,13 +14,13 @@ public class Item {
 
 
 	public Item(int itemID,ItemDescription description,AmountOfMoney cost,String category) {
-            this.itemID = itemID;
+            this.itemID = new ItemIdentifier(itemID);
             this.itemDescription = description;
             price = cost;
             itemCategory = category;
 	}
 
-    public int getItemID() {
+    public ItemIdentifier getItemID() {
         return itemID;
     }
 
@@ -41,7 +41,7 @@ public class Item {
         return itemCategory;
     }
     public String toString(){
-        return ItemDescription.to
+        return itemDescription.toString();
     }
 
 }

@@ -1,5 +1,6 @@
 package Controller;
 
+import DTO.SaleDTO;
 import Integration.*;
 import Model.*;
 
@@ -27,9 +28,9 @@ public class Controller {
 	}
 
 	public SaleDTO scanItem(int quantity, int itemID) {
-		Item scannedItem = registryCreator.getItemRegistry().getItem(itemID);
-                
-            return sale.sellItem(scannedItem);
+		Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID);
+                //System.out.println(scannedItem);
+            return sale.sellItem(quantity,scannedItem);
 	}
 
 	public TotalPrice finalizeSale() {
@@ -41,7 +42,7 @@ public class Controller {
 	}
 
 	public AmountOfMoney pay(AmountOfMoney paidAmount) {
-		return null;
+		return sale.payForSale(paidAmount);
 	}
 
 }

@@ -11,11 +11,20 @@ public class AmountOfMoney {
 	}
 
 	public void updateAmount(double newAmount) {
-
+            
 	}
+        
+        public void add(AmountOfMoney addition){
+            amount += addition.getAmount();
+        }
         
         public AmountOfMoney(double startingAmount){
             amount = startingAmount;
         }
+        
+        public String toString(){
+            return String.format("%.2f", this.amount);
+        }
+        
 
 }

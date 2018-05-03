@@ -6,10 +6,9 @@ public class RegistryCreator {
 
 	private ExternalSystems externalSystems;
 
-	public RegistryCreator RegistryCreator() {
+	public RegistryCreator() {
             itemRegistry = new ItemRegistry();
             externalSystems = new ExternalSystems();
-		return this;
 	}
 
 	public ItemRegistry getItemRegistry() {

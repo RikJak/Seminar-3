@@ -10,8 +10,8 @@ public class TotalPrice extends TaxRates {
 
 	private TaxRates tax;
 
-	public TotalPrice TotalPrice(SaleInformation finalSaleInfo) {
-		return null;
+	public TotalPrice(SaleInformation finalSaleInfo) {
+		price = finalSaleInfo.getRunningTotal();
 	}
 
 	private void addTax(SaleInformation finalSaleInfo) {

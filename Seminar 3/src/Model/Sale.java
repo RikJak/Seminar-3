@@ -1,5 +1,6 @@
 package Model;
 
+import DTO.SaleDTO;
 import Integration.Item;
 import Integration.AmountOfMoney;
 import Integration.Discount;
@@ -17,20 +18,24 @@ public class Sale {
 	private CashRegister cashRegister;
 
 	public Sale(CashRegister cashRegister) {
-		//return null;
+                saleInformation = new SaleInformation(System.nanoTime());
+                this.cashRegister = cashRegister;
 	}
 
 	private void setTimeOfSale() {
-
+            saleInformation.setTimeOfSale(System.nanoTime());
 	}
 
 	public TotalPrice finalizeSale() {
 		return null;
 	}
 
-	public SaleDTO sellItem(Item item) {
-		return null;
-	}
+	public SaleDTO sellItem(int quantity,Item item) {
+		for(int i = 0; i<quantity;i++){
+                    saleInformation.updateSale(item);
+                }
+                return saleInformation.getSaleInformation();
+        }
 
 	public SaleDTO getSaleData() {
 		return null;

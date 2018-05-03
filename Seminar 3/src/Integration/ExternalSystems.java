@@ -1,6 +1,6 @@
 package Integration;
 
-import Model.SaleDTO;
+import DTO.SaleDTO;
 import Model.Reciept;
 
 public class ExternalSystems {
@@ -13,8 +13,8 @@ public class ExternalSystems {
 
 	}
 
-	public ExternalSystems ExternalSystem() {
-		return null;
+	public ExternalSystems(){
+
 	}
 
 	public void printReciept(Reciept receipt) {

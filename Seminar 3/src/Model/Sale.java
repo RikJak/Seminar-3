@@ -27,7 +27,7 @@ public class Sale {
 	}
 
 	public TotalPrice finalizeSale() {
-		return null;
+		return new TotalPrice(saleInformation.getRunningTotal());
 	}
 
 	public SaleDTO sellItem(int quantity,Item item) {

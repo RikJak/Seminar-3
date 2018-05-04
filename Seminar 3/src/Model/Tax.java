@@ -4,14 +4,21 @@ import Integration.TaxRates;
 
 public class Tax {
 
-	private TaxRates currenttaxRates;
+	private static double currenttaxRates = 1.25;
 
-	public Tax Tax(TaxRates currentTaxRates) {
-		return null;
+	public Tax(TaxRates currentTaxRates) {
+		//return null;
 	}
-
+        
+        
+/*      
+        
 	public SaleInformation addTax(SaleInformation saleInfo) {
 		return null;
 	}
+*/
 
+    public static double getCurrenttaxRates() {
+        return currenttaxRates;
+    }
 }

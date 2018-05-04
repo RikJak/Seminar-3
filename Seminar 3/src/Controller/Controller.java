@@ -34,7 +34,7 @@ public class Controller {
 	}
 
 	public TotalPrice finalizeSale() {
-		return null;
+		return sale.finalizeSale();
 	}
 
 	public TotalPrice isEligibleForDiscount(int customerID) {

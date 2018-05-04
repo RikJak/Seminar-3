@@ -39,7 +39,7 @@ public class SaleDTO {
     }
     
     public String toString(){
-        String saleInfo = "Current total: " + runningTotal.toString() +"\n Last sold Item: " + lastSoldItem.toString();
+        String saleInfo = "Current total: " + runningTotal.toString() +"\n Last sold Item: " + lastSoldItem.toString() +"\n Price: " + lastSoldItem.getPrice();
         return saleInfo;
     }
 }

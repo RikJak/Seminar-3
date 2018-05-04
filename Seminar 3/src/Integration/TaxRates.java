@@ -4,7 +4,7 @@ public class TaxRates {
 
 	private double taxRate;
 
-	private char taxCategory;
+	private String taxCategory;
 
 	public TaxRates TaxRates() {
 		return null;

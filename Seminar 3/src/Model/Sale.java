@@ -6,7 +6,8 @@ import Integration.DiscountRegistry;
 import Utilities.*;
 
 /**
- *
+ * This is the central class of the program. 
+ * Each instance handles one transaction.
  * @author Rikard
  */
 public class Sale {
@@ -24,8 +25,9 @@ public class Sale {
     private boolean ongoingSale;
 
     /**
+     * Initializes a new sale.
+     * @param cashRegister the cash register in the store. 
      *
-     * @param cashRegister
      */
     public Sale(CashRegister cashRegister) {
         saleInformation = new SaleInformation();
@@ -35,8 +37,9 @@ public class Sale {
     }
 
     /**
-     *
-     * @return
+     * This ends the current transaction.
+     * It sets the ongoingSale variable to false to prevent adding more items to it.
+     * @return the final price of the transaction.
      */
     public TotalPriceDTO finalizeSale() {
         totalPrice = new TotalPrice(saleInformation);
@@ -45,10 +48,11 @@ public class Sale {
     }
 
     /**
-     *
-     * @param quantity
-     * @param item
-     * @return
+     * Adds an item to the transaction. 
+     * The quantity determines how many of the item are to be added.
+     * @param quantity how many of the item are to be added.
+     * @param item the item to be added.
+     * @return a DTO containing the current state of the transaction. 
      */
     public SaleDTO sellItem(int quantity, Item item) {
         if (ongoingSale) {
@@ -60,33 +64,29 @@ public class Sale {
 
     }
 
-    public SaleDTO sellItem(Item item) {
-
-        return sellItem(1, item);
-
-    }
 
     /**
-     *
-     * @return
+     * Returns the current state of the sale.
+     * @return the current state of the sale.
      */
     public SaleDTO getSaleData() {
         return saleInformation.getSaleInformation();
     }
 
     /**
-     *
-     * @param amountPaid
-     * @return
+     * Handles the payment for the transaction.
+     * @param amountPaid the amount of money handed over by the customer.
+     * @return the change.
+     * @throws Model.InsufficientFundsException
      */
     public AmountOfMoney payForSale(AmountOfMoney amountPaid) throws InsufficientFundsException{
         return cashRegister.registerPayment(amountPaid, totalPrice);
     }
 
     /**
-     *
-     * @param discount
-     * @return
+     * Returns a new total amount depending on the provided discount.
+     * @param discount the discount that is to be added to the total price.
+     * @return the new total.
      */
     public TotalPriceDTO getDiscount(Discount discount) {
         totalPrice.applyDiscount(discount);

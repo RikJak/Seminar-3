@@ -6,22 +6,24 @@ import java.util.*;
 
 
 /**
- *
+ * Contains all items sold during one transaction.
+ * It uses a map of the items as well as how many times they have been entered.
  * @author Rikard
  */
 public class SoldItems {
     private HashMap<Item,Integer> soldItems;
 
     /**
-     *
+     *Initializes the HashMap used to store the items.
      */
     public SoldItems() {
         soldItems = new HashMap<>();
     }
     
     /**
-     *
-     * @param lastScannedItem
+     * This method adds an item to the map if it has not been scanned before.
+     * If it has the quantity is raised by one.
+     * @param lastScannedItem the item that was scanned.
      */
     public void add(Item lastScannedItem){
         Item ID = lastScannedItem;

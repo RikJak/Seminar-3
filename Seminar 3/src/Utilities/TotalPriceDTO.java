@@ -2,21 +2,15 @@ package Utilities;
 
 import Model.TotalPrice;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
+ * A DTO for the TotalPrice class.
  * @author Rikard
  */
 public class TotalPriceDTO {
     private final AmountOfMoney totalPrice;
 
     /**
-     *
+     *Initializes the DTO
      * @param totalPrice
      */
     public TotalPriceDTO(TotalPrice totalPrice) {
@@ -24,7 +18,7 @@ public class TotalPriceDTO {
     }
 
     /**
-     *
+     * returns the final price
      * @return
      */
     public AmountOfMoney getTotalPrice() {

@@ -8,7 +8,7 @@ import Model.TotalPrice;
 import java.util.Arrays;
 
 /**
- *
+ * This class simulates the user interface of the program.
  * @author Rikard
  */
 public class View{
@@ -16,23 +16,17 @@ public class View{
 	private Controller controller;
 
     /**
-     *
-     * @param contr
+     * Creates the View
+     * @param contr the controller for this program.
      */
     public View(Controller contr){
             this.controller = contr;
             
 	}
         
+ 
     /**
-     *
-     */
-    public void scanItem(){
-            
-        }
-
-    /**
-     *
+     *This method simulates two consecutive sales. It prints out what it receives back from the controller.
      */
     public void sampleExcecution(){
             System.out.println("The current balance in the cashRegister is: " + controller.getCashRegisterBalance());
@@ -69,23 +63,15 @@ public class View{
             total = controller.isEligibleForDiscount(99999999);
             System.out.println("Price after discount: " + total);
             AmountOfMoney payment = new AmountOfMoney(40000);
+            
+            
             try{
-            System.out.println("You paid "+ payment +" and your change is: " + controller.pay(payment));
+            System.out.println("\nYou paid "+ payment +" and your change is: " + controller.pay(payment));
             }catch(InsufficientFundsException e){
                     System.out.println(e);
                     }
             System.out.println("The current balance in the cashRegister is: " + controller.getCashRegisterBalance());
             
     }
-            
-            
-        
     
-    private SaleDTO[] scanItems(int[] itemIdentifiers){
-        SaleDTO[] scannedItems = new SaleDTO[itemIdentifiers.length];
-        for(int i = 0; i<itemIdentifiers.length;i++){
-            scannedItems[i]= controller.scanItem(i, itemIdentifiers[i]);
-        }
-        return scannedItems;
-    }
 }

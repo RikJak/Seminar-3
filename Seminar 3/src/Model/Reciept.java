@@ -3,7 +3,8 @@ package Model;
 import Utilities.*;
 
 /**
- *
+ * Contains the transaction data.
+ * It is used to print a receipt that is to be given to the customer.
  * @author Rikard
  */
 public class Reciept {
@@ -12,10 +13,10 @@ public class Reciept {
         private AmountOfMoney paidMoney;
 
     /**
-     *
-     * @param saleInformation
-     * @param change
-     * @param paidMoney
+     * Initializes all fields.
+     * @param saleInformation the information from the finished sale.
+     * @param change how much change was paid back.
+     * @param paidMoney How much the customer paid.
      */
     public Reciept(SaleDTO saleInformation, AmountOfMoney change, AmountOfMoney paidMoney) {
         this.saleInformation = saleInformation;
@@ -24,7 +25,7 @@ public class Reciept {
         
         
     }
-    
+
     private String getSoldItems(){
             
         return saleInformation.getSoldItems().toString();
@@ -36,7 +37,7 @@ public class Reciept {
         buildReciept.append(getSoldItems());
         buildReciept.append("\nFinal price: " +saleInformation.getRunningTotal());
         buildReciept.append("\nAmount paid: " +paidMoney);
-        buildReciept.append("\nChange: " +change);
+        buildReciept.append("\nChange: " +change+"\n");
         return buildReciept.toString();
     }
 

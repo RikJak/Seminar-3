@@ -1,7 +1,7 @@
 package Integration;
 
 /**
- *
+ *This class describes the Item
  * @author Rikard
  */
 public class ItemDescription {
@@ -11,8 +11,8 @@ public class ItemDescription {
 	//private int price;
 
     /**
-     *
-     * @param description
+     * Constructor for the item.
+     * @param description what the item is.
      */
         
         public ItemDescription(String description){

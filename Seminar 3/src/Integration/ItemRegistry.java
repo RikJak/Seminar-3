@@ -4,7 +4,7 @@ import Utilities.AmountOfMoney;
 import java.util.*;
 
 /**
- *
+ *This is a mock database containing Items. 
  * @author Rikard
  */
 public class ItemRegistry {
@@ -12,9 +12,9 @@ public class ItemRegistry {
 	private HashMap<ItemIdentifier,Item> itemRegistry;
 
     /**
-     *
-     * @param itemID
-     * @return
+     *Retrieves an item from the registry.
+     * @param itemID identifies which item is sought.
+     * @return the item matching the provided ID.
      */
     public Item getItem(int itemID) {
 		return itemRegistry.get(new ItemIdentifier(itemID));
@@ -22,7 +22,8 @@ public class ItemRegistry {
 	}
 
     /**
-     *
+     * Initializes the registry. 
+     * Items are created and entered into the registry.
      */
     public ItemRegistry(){
 		

@@ -3,27 +3,27 @@ package Integration;
 import Utilities.AmountOfMoney;
 
 /**
- *
+ * This class represents an Item that exists in the store.
  * @author Rikard
  */
 public class Item {
 
-	private ItemIdentifier itemID;
+	private final ItemIdentifier itemID;
 
-	private ItemDescription itemDescription;
+	private final ItemDescription itemDescription;
 
 	private boolean isValidItem;
 
-	private AmountOfMoney price;
+	private final AmountOfMoney price;
 
-	private String itemCategory;
+	private final String itemCategory;
 
     /**
-     *
-     * @param itemID
-     * @param description
-     * @param cost
-     * @param category
+     *  This initializes the Item and sets the fields
+     * @param itemID the identifier for the item.
+     * @param description describes the item.
+     * @param cost how much the item costs
+     * @param category what category of item it is.
      */
     public Item(int itemID,ItemDescription description,AmountOfMoney cost,String category) {
             this.itemID = new ItemIdentifier(itemID);
@@ -33,44 +33,48 @@ public class Item {
 	}
 
     /**
-     *
-     * @return
+     * Returns the ItemIdentifier
+     * @return ItemIdentifier
      */
     public ItemIdentifier getItemID() {
         return itemID;
     }
 
     /**
-     *
-     * @return
+     * Returns ItemDescription 
+     * @return ItemDescription 
      */
     public ItemDescription getItemDescription() {
         return itemDescription;
     }
 
     /**
-     *
-     * @return
+     *return isValidItem
+     * @return isValidItem
      */
     public boolean isIsValidItem() {
         return isValidItem;
     }
 
     /**
-     *
-     * @return
+     *return price
+     * @return return price
      */
     public AmountOfMoney getPrice() {
         return price;
     }
         
     /**
-     *
-     * @return
+     *return itemCategory
+     * @return itemCategory
      */
     public String getItemCategory() {
         return itemCategory;
     }
+    /**
+     * Generates a string representation of the item, which is the description.
+     * @return the description of the item.
+     */
     public String toString(){
         return itemDescription.toString();
     }

@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Utilities;
 
 /**
- *
+ * This is the discount that a customer gets.
  * @author Rikard
  */
 public class Discount {
    private final double disountRate;
 
     /**
-     *
+     * This sets the discount.
      * @param disountRate
      */
     public Discount(double disountRate) {
@@ -21,8 +17,8 @@ public class Discount {
     }
     
     /**
-     *
-     * @return
+     * Gets the discount rate.
+     * @return the dicount rate
      */
     public double getDiscount() {
         return disountRate;

@@ -1,7 +1,7 @@
 package Integration;
 
 /**
- *
+ * Creates all registries
  * @author Rikard
  */
 public class RegistryCreator {
@@ -13,7 +13,7 @@ public class RegistryCreator {
     private DiscountRegistry discountRegistry;
 
     /**
-     *
+     * Creates all registries.
      */
     public RegistryCreator() {
         itemRegistry = new ItemRegistry();
@@ -22,24 +22,24 @@ public class RegistryCreator {
     }
 
     /**
-     *
-     * @return
+     * retrieves the discount registry.
+     * @return the discount registry
      */
     public DiscountRegistry getDiscountRegistry() {
         return discountRegistry;
     }
 
     /**
-     *
-     * @return
+     * retrieves the item registry.
+     * @return the item registry.
      */
     public ItemRegistry getItemRegistry() {
         return itemRegistry;
     }
 
     /**
-     *
-     * @return
+     * retrieves the external systems.
+     * @return the external systems.
      */
     public ExternalSystems getExternalSystems() {
         return externalSystems;

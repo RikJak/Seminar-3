@@ -5,7 +5,7 @@ import Model.SoldItems;
 import java.util.ArrayList;
 
 /**
- *
+ * This DTO contains the current state of the sale.
  * @author Rikard
  */
 public class SaleDTO {
@@ -18,11 +18,10 @@ public class SaleDTO {
 	private final SoldItems soldItems;
 
     /**
-     *
-     * @param timeOfSale
-     * @param runningTotal
-     * @param lastSoldItem
-     * @param soldItems
+     * Initializes the DTO.
+     * @param runningTotal the current total of the sale.
+     * @param lastSoldItem the last scanned item.
+     * @param soldItems the class containing all items scanned so far.
      */
     public SaleDTO( AmountOfMoney runningTotal, Item lastSoldItem, SoldItems soldItems) {
 
@@ -31,14 +30,9 @@ public class SaleDTO {
         this.soldItems = soldItems;
     }
 
-    /**
-     *
-     * @return
-     */
-
 
     /**
-     *
+     * gets the current total.
      * @return the current amount of money
      */
     public AmountOfMoney getRunningTotal() {
@@ -55,7 +49,7 @@ public class SaleDTO {
 
     /**
      *
-     * @return
+     * @return all items scanned so far.
      */
     public SoldItems getSoldItems() {
         return soldItems;

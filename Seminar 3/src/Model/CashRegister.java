@@ -4,7 +4,8 @@ import Utilities.AmountOfMoney;
 import java.security.InvalidParameterException;
 
 /**
- *
+ * This class handles payments. 
+ * It contains a balance that is consistent between transactions. 
  * @author Rikard
  */
 public class CashRegister {
@@ -12,10 +13,11 @@ public class CashRegister {
     private AmountOfMoney balance;
 
     /**
-     *
-     * @param amountPaid
-     * @param finalPrice
-     * @return
+     * This method receives an amount of money from the customer as well as how much is to be paid.
+     * @param amountPaid the amount of money paid by the customer.
+     * @param finalPrice the price to be paid.
+     * @return the difference between the two amounts. The change given back to the customer.
+     * @throws Model.InsufficientFundsException
      */
     public AmountOfMoney registerPayment(AmountOfMoney amountPaid, TotalPrice finalPrice) throws InsufficientFundsException {
 
@@ -37,6 +39,12 @@ public class CashRegister {
         return new AmountOfMoney(change);
     }
 
+    /**
+     * Updates the amount of money in the cash register. 
+     * It checks if the amount entered is more than 0, and if not it will throw an exception.
+     * @param totalPrice the amount of money to be added to the cash register.
+     * @throws InvalidParameterException
+     */
     public void updateBalance(AmountOfMoney totalPrice) throws InvalidParameterException {
         if (totalPrice.getAmount() < 0) {
             throw new InvalidParameterException("Not possible to add a negative amount");
@@ -53,6 +61,10 @@ public class CashRegister {
         this.balance = balance;
     }
 
+    /**
+     * Returns the current balance.
+     * @return the current balance.
+     */
     public AmountOfMoney getBalance() {
         return balance;
     }

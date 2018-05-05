@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Integration;
 
 /**
- *
+ * This is used to identify an Item and is used to compare if they are the same.
  * @author Rikard
  */
 public class ItemIdentifier {
@@ -14,13 +10,19 @@ public class ItemIdentifier {
     int itemID;
 
     /**
-     *
-     * @param id
+     * Constructs the ItemIdentifier.
+     * @param id the identifier for this item.
      */
     public ItemIdentifier(int id) {
         itemID = id;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param o
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (o instanceof ItemIdentifier) {
@@ -30,14 +32,19 @@ public class ItemIdentifier {
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         return getItemID();
     }
 
     /**
-     *
-     * @return
+     * Returns the ItemID as an integer.
+     * @return the itemID
      */
     public int getItemID() {
         return itemID;

@@ -11,28 +11,32 @@ public class AmountOfMoney {
     private double amount;
 
     /**
-     *
-     * @return
+     * Gets the amount of money.
+     * @return the amount of money
      */
     public double getAmount() {
         return amount;
     }
 
+    /**
+     * Gets the currency
+     * @return the currency of this amount.
+     */
     public String getCurrency() {
         return currency;
     }
 
     /**
-     *
-     * @param newAmount
+     * Updated the amount contained to a new amount.
+     * @param newAmount the new amount that the object is to be set to.
      */
     public void updateAmount(double newAmount) {
         amount = newAmount;
     }
 
     /**
-     *
-     * @param addition
+     * Adds an amount of money to this amount.
+     * @param addition the amount to be added.
      */
     public void add(AmountOfMoney addition) {
         amount += addition.getAmount();
@@ -47,6 +51,11 @@ public class AmountOfMoney {
         currency = "sek";
     }
 
+    /**
+     * This is an alternate constructor where you can specify the currency to be used.
+     * @param startingAmount the starting value.
+     * @param currency the currency this amount is in.
+     */
     public AmountOfMoney(double startingAmount, String currency) {
         amount = startingAmount;
         this.currency = currency;

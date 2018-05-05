@@ -32,8 +32,11 @@ public class Reciept {
     
     public String toString(){
         StringBuilder buildReciept = new StringBuilder();
+        buildReciept.append("\nThank you for shopping here today!\n");
         buildReciept.append(getSoldItems());
-        
+        buildReciept.append("\nFinal price: " +saleInformation.getRunningTotal());
+        buildReciept.append("\nAmount paid: " +paidMoney);
+        buildReciept.append("\nChange: " +change);
         return buildReciept.toString();
     }
 

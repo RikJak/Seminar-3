@@ -17,7 +17,7 @@ public class SaleInformation {
 
     private Item lastSoldItem;
 
-    private Long timeOfSale;
+    
 
     /**
      *
@@ -44,8 +44,8 @@ public class SaleInformation {
      *
      * @param timeOfSale
      */
-    public SaleInformation(long timeOfSale) {
-        this.timeOfSale = timeOfSale;
+    public SaleInformation() {
+       
         runningTotal = new AmountOfMoney(0);
         soldItems = new SoldItems();
     }
@@ -55,7 +55,7 @@ public class SaleInformation {
      * @return
      */
     public SaleDTO getSaleInformation(){
-        return new SaleDTO(timeOfSale,runningTotal,lastSoldItem,soldItems);
+        return new SaleDTO(runningTotal,lastSoldItem,soldItems);
     }
 
     /**
@@ -82,13 +82,6 @@ public class SaleInformation {
         return lastSoldItem;
     }
 
-    /**
-     *
-     * @return
-     */
-    public long getTimeOfSale() {
-        return timeOfSale;
-    }
 
     /**
      *
@@ -106,12 +99,5 @@ public class SaleInformation {
         this.lastSoldItem = lastSoldItem;
     }
 
-    /**
-     *
-     * @param timeOfSale
-     */
-    public void setTimeOfSale(long timeOfSale) {
-        this.timeOfSale = timeOfSale;
-    }
 
 }

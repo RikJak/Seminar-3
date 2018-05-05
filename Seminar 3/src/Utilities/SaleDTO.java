@@ -10,7 +10,6 @@ import java.util.ArrayList;
  */
 public class SaleDTO {
 
-	private final long timeOfSale;
 
 	private final AmountOfMoney runningTotal;
 
@@ -25,8 +24,8 @@ public class SaleDTO {
      * @param lastSoldItem
      * @param soldItems
      */
-    public SaleDTO(long timeOfSale, AmountOfMoney runningTotal, Item lastSoldItem, SoldItems soldItems) {
-        this.timeOfSale = timeOfSale;
+    public SaleDTO( AmountOfMoney runningTotal, Item lastSoldItem, SoldItems soldItems) {
+
         this.runningTotal = runningTotal;
         this.lastSoldItem = lastSoldItem;
         this.soldItems = soldItems;
@@ -36,9 +35,7 @@ public class SaleDTO {
      *
      * @return
      */
-    public long getTimeOfSale() {
-        return timeOfSale;
-    }
+
 
     /**
      *

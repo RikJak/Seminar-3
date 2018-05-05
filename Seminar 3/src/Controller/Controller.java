@@ -15,8 +15,9 @@ public class Controller {
     private RegistryCreator registryCreator;
 
     private Reciept reciept;
+    
+    private Printer printer;
 
-    private DiscountRegistry discount;
 
     private CashRegister cashRegister;
 
@@ -33,8 +34,9 @@ public class Controller {
      *
      * @param registers
      */
-    public Controller(RegistryCreator registers) {
+    public Controller(RegistryCreator registers,Printer printer) {
         registryCreator = registers;
+        this.printer = printer;
         cashRegister = new CashRegister(startingBalance);
     }
 
@@ -71,12 +73,18 @@ public class Controller {
      * @param paidAmount
      * @return
      */
-    public AmountOfMoney pay(AmountOfMoney paidAmount) {
+    public AmountOfMoney pay(AmountOfMoney paidAmount) throws InsufficientFundsException{
         AmountOfMoney change = sale.payForSale(paidAmount);
         reciept = new Reciept(sale.getSaleData(), change, paidAmount);
+        printer.printReciept(reciept);
+        
 
         return change;
 
+    }
+    
+    public AmountOfMoney getCashRegisterBalance(){
+       return cashRegister.getBalance();
     }
 
 }

@@ -1,6 +1,5 @@
 package Model;
 
-
 import Integration.Item;
 
 import Integration.DiscountRegistry;
@@ -12,42 +11,38 @@ import Utilities.*;
  */
 public class Sale {
 
-	private Item scannedItems;
+    private Item scannedItems;
 
-	private SaleInformation currentSaleInfo;
+    private SaleInformation currentSaleInfo;
 
-	private TotalPrice totalPrice;
+    private TotalPrice totalPrice;
 
-	private SaleInformation saleInformation;
+    private SaleInformation saleInformation;
 
-	private CashRegister cashRegister;
-        
-        private boolean ongoingSale;
+    private CashRegister cashRegister;
+
+    private boolean ongoingSale;
 
     /**
      *
      * @param cashRegister
      */
     public Sale(CashRegister cashRegister) {
-                saleInformation = new SaleInformation(System.nanoTime());
-                this.cashRegister = cashRegister;
-                totalPrice = new TotalPrice(saleInformation);
-                ongoingSale =true;
-	}
-
-	private void setTimeOfSale() {
-            saleInformation.setTimeOfSale(System.nanoTime());
-	}
+        saleInformation = new SaleInformation();
+        this.cashRegister = cashRegister;
+        totalPrice = new TotalPrice(saleInformation);
+        ongoingSale = true;
+    }
 
     /**
      *
      * @return
      */
     public TotalPriceDTO finalizeSale() {
-                totalPrice = new TotalPrice(saleInformation);
-                ongoingSale = false;
-                return new TotalPriceDTO(totalPrice);
-	}
+        totalPrice = new TotalPrice(saleInformation);
+        ongoingSale = false;
+        return new TotalPriceDTO(totalPrice);
+    }
 
     /**
      *
@@ -55,32 +50,38 @@ public class Sale {
      * @param item
      * @return
      */
-    public SaleDTO sellItem(int quantity,Item item) {
-            if(ongoingSale){
-		for(int i = 0; i<quantity;i++){
-                    saleInformation.updateSale(item);
-                }
+    public SaleDTO sellItem(int quantity, Item item) {
+        if (ongoingSale) {
+            for (int i = 0; i < quantity; i++) {
+                saleInformation.updateSale(item);
             }
-                return getSaleData();
-            
         }
+        return getSaleData();
+
+    }
+
+    public SaleDTO sellItem(Item item) {
+
+        return sellItem(1, item);
+
+    }
 
     /**
      *
      * @return
      */
     public SaleDTO getSaleData() {
-		return saleInformation.getSaleInformation();
-	}
+        return saleInformation.getSaleInformation();
+    }
 
     /**
      *
      * @param amountPaid
      * @return
      */
-    public AmountOfMoney payForSale(AmountOfMoney amountPaid) {
-		return cashRegister.registerPayment(amountPaid, totalPrice);
-	}
+    public AmountOfMoney payForSale(AmountOfMoney amountPaid) throws InsufficientFundsException{
+        return cashRegister.registerPayment(amountPaid, totalPrice);
+    }
 
     /**
      *
@@ -88,8 +89,8 @@ public class Sale {
      * @return
      */
     public TotalPriceDTO getDiscount(Discount discount) {
-		totalPrice.applyDiscount(discount);
-                return new TotalPriceDTO(totalPrice);
-	}
+        totalPrice.applyDiscount(discount);
+        return new TotalPriceDTO(totalPrice);
+    }
 
 }

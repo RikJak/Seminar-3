@@ -16,9 +16,10 @@ public class Main {
     public static void main(String[] args) {
   
         RegistryCreator registries = new RegistryCreator();
-
         
-        Controller contr = new Controller(registries);
+        Printer printer = new Printer();
+        
+        Controller contr = new Controller(registries,printer);
 
         View view = new View(contr);
         

@@ -18,6 +18,10 @@ public class AmountOfMoney {
         return amount;
     }
 
+    public String getCurrency() {
+        return currency;
+    }
+
     /**
      *
      * @param newAmount
@@ -35,8 +39,8 @@ public class AmountOfMoney {
     }
 
     /**
-     *
-     * @param startingAmount
+     *This is the default constructor for this object. It sets the amount contained and sets the currency to a default value.
+     * @param startingAmount the starting value for this AmountOfMoney
      */
     public AmountOfMoney(double startingAmount) {
         amount = startingAmount;

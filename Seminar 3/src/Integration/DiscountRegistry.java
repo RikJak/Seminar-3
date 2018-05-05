@@ -7,7 +7,7 @@ import Utilities.*;
 */
 
 /**
- *
+ *This class is a mock database containing a customer IDs and their associated accounts.
  * @author Rikard
  */
 
@@ -17,14 +17,15 @@ public class DiscountRegistry {
 
     /**
      *
-     * @param customerID
-     * @return
+     * This method is used to find discounts associated with the provided ID.
+     * 
+     * @param customerID is the ID which is used to check if the customer is eligible for a discount
+     * @return the discount associated with this ID. "1" is returned if the customer is not in the database.
      */
     public Discount getDiscount(int customerID) {
                 Integer ID = new Integer(customerID);
 		if(elligibleID.containsKey(ID)){
-                    //System.out.println("Integration.DiscountRegistry.getDiscount()");
-                    //System.out.println(elligibleID.get(ID));
+
                     return new Discount(elligibleID.get(ID));
                 }else{
                     return new Discount(1);
@@ -32,7 +33,7 @@ public class DiscountRegistry {
 	}
 
     /**
-     *
+     *This method initializes the database.
      */
     public DiscountRegistry() {
             elligibleID = new HashMap<Integer, Double>();

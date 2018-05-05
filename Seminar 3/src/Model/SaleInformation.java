@@ -1,15 +1,15 @@
 package Model;
 
-import DTO.SaleDTO;
-import Integration.AmountOfMoney;
+import Utilities.*;
 import Integration.Item;
+import Integration.ItemIdentifier;
 import java.util.*;
 
 public class SaleInformation {
 
     private AmountOfMoney runningTotal;
 
-    private ArrayList<Item> soldItems;
+    private SoldItems soldItems;
 
     private Item lastSoldItem;
 
@@ -30,7 +30,7 @@ public class SaleInformation {
     public SaleInformation(long timeOfSale) {
         this.timeOfSale = timeOfSale;
         runningTotal = new AmountOfMoney(0);
-        soldItems = new ArrayList<>();
+        soldItems = new SoldItems();
     }
     
     public SaleDTO getSaleInformation(){

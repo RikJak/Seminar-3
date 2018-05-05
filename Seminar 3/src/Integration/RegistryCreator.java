@@ -2,21 +2,28 @@ package Integration;
 
 public class RegistryCreator {
 
-	private ItemRegistry itemRegistry;
+    private ItemRegistry itemRegistry;
 
-	private ExternalSystems externalSystems;
+    private ExternalSystems externalSystems;
 
-	public RegistryCreator() {
-            itemRegistry = new ItemRegistry();
-            externalSystems = new ExternalSystems();
-	}
+    private DiscountRegistry discountRegistry;
 
-	public ItemRegistry getItemRegistry() {
-		return itemRegistry;
-	}
+    public RegistryCreator() {
+        itemRegistry = new ItemRegistry();
+        externalSystems = new ExternalSystems();
+        discountRegistry = new DiscountRegistry();
+    }
 
-	public ExternalSystems getExternalSystems() {
-		return externalSystems;
-	}
+    public DiscountRegistry getDiscountRegistry() {
+        return discountRegistry;
+    }
+
+    public ItemRegistry getItemRegistry() {
+        return itemRegistry;
+    }
+
+    public ExternalSystems getExternalSystems() {
+        return externalSystems;
+    }
 
 }

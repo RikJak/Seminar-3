@@ -1,17 +1,20 @@
 package Model;
 
-import Integration.AmountOfMoney;
+import Utilities.AmountOfMoney;
 
 public class CashRegister {
 
-	private AmountOfMoney Balance;
+	private AmountOfMoney balance;
 
 	public AmountOfMoney registerPayment(AmountOfMoney amountPaid, TotalPrice finalPrice) {
-		return null;
+                AmountOfMoney change = calculateChange(amountPaid, finalPrice);
+                balance.add(change);
+		return change;
 	}
 
-	private AmountOfMoney calculateChange() {
-		return null;
+	private AmountOfMoney calculateChange(AmountOfMoney amountPaid, TotalPrice finalPrice) {
+            double change = amountPaid.getAmount()- finalPrice.getPrice().getAmount();
+		return new AmountOfMoney(change);
 	}
 
 	private void updateBalance() {
@@ -19,7 +22,7 @@ public class CashRegister {
 	}
 
 	public CashRegister(AmountOfMoney balance) {
-            
+            this.balance = balance;
 	}
 
 }

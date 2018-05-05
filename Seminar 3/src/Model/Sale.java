@@ -1,9 +1,10 @@
 package Model;
 
-import DTO.SaleDTO;
+
 import Integration.Item;
-import Integration.AmountOfMoney;
-import Integration.Discount;
+
+import Integration.DiscountRegistry;
+import Utilities.*;
 
 public class Sale {
 
@@ -16,38 +17,48 @@ public class Sale {
 	private SaleInformation saleInformation;
 
 	private CashRegister cashRegister;
+        
+        private boolean ongoingSale;
 
 	public Sale(CashRegister cashRegister) {
                 saleInformation = new SaleInformation(System.nanoTime());
                 this.cashRegister = cashRegister;
+                totalPrice = new TotalPrice(saleInformation);
+                ongoingSale =true;
 	}
 
 	private void setTimeOfSale() {
             saleInformation.setTimeOfSale(System.nanoTime());
 	}
 
-	public TotalPrice finalizeSale() {
-		return new TotalPrice(saleInformation.getRunningTotal());
+	public TotalPriceDTO finalizeSale() {
+                totalPrice = new TotalPrice(saleInformation);
+                ongoingSale = false;
+                return new TotalPriceDTO(totalPrice);
 	}
 
 	public SaleDTO sellItem(int quantity,Item item) {
+            if(ongoingSale){
 		for(int i = 0; i<quantity;i++){
                     saleInformation.updateSale(item);
                 }
-                return saleInformation.getSaleInformation();
+            }
+                return getSaleData();
+            
         }
 
 	public SaleDTO getSaleData() {
-		return null;
+		return saleInformation.getSaleInformation();
 	}
 
 
 	public AmountOfMoney payForSale(AmountOfMoney amountPaid) {
-		return null;
+		return cashRegister.registerPayment(amountPaid, totalPrice);
 	}
 
-	public TotalPrice getDiscount(Discount discount) {
-		return null;
+	public TotalPriceDTO getDiscount(Discount discount) {
+		totalPrice.applyDiscount(discount);
+                return new TotalPriceDTO(totalPrice);
 	}
 
 }

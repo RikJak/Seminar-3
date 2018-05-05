@@ -1,6 +1,6 @@
 package Integration;
 
-import DTO.SaleDTO;
+import Utilities.SaleDTO;
 import Model.Reciept;
 
 public class ExternalSystems {

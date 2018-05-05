@@ -1,12 +1,14 @@
 package Model;
 
-import Integration.TaxRates;
-import Integration.AmountOfMoney;
-import Integration.Discount;
 
-public class TotalPrice extends TaxRates {
+import Utilities.*;
 
-	private AmountOfMoney price;
+import Model.SaleInformation;
+import Model.Tax;
+
+public class TotalPrice {
+
+	private  AmountOfMoney price;
 
 	private double tax;
 

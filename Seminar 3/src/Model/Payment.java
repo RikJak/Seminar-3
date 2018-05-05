@@ -1,7 +1,7 @@
 package Model;
 
-import Integration.Discount;
-import Integration.AmountOfMoney;
+import Integration.DiscountRegistry;
+import Utilities.AmountOfMoney;
 
 public class Payment {
 
@@ -11,7 +11,7 @@ public class Payment {
 		return null;
 	}
 
-	public TotalPrice applyDiscount(Discount dsicount) {
+	public TotalPrice applyDiscount(DiscountRegistry dsicount) {
 		return null;
 	}
 

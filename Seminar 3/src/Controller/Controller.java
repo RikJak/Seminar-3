@@ -1,48 +1,51 @@
 package Controller;
 
-import DTO.SaleDTO;
+import Utilities.*;
 import Integration.*;
 import Model.*;
 
 public class Controller {
 
-	private Sale sale;
+    private Sale sale;
 
-	private RegistryCreator registryCreator;
+    private RegistryCreator registryCreator;
 
-	private Reciept reciept;
+    private Reciept reciept;
 
-	private Discount discount;
-        
-        private CashRegister cashRegister;
-        
-        private AmountOfMoney startingBalance = new AmountOfMoney(100);
+    private DiscountRegistry discount;
 
-	public void startNewSale() {
-            sale = new Sale(cashRegister);
-	}
+    private CashRegister cashRegister;
 
-	public Controller(RegistryCreator registers) {
-                registryCreator  = registers;
-                cashRegister = new CashRegister(startingBalance);
-	}
+    private AmountOfMoney startingBalance = new AmountOfMoney(100);
 
-	public SaleDTO scanItem(int quantity, int itemID) {
-		Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID);
-                //System.out.println(scannedItem);
-            return sale.sellItem(quantity,scannedItem);
-	}
+    public void startNewSale() {
+        sale = new Sale(cashRegister);
+    }
 
-	public TotalPrice finalizeSale() {
-		return sale.finalizeSale();
-	}
+    public Controller(RegistryCreator registers) {
+        registryCreator = registers;
+        cashRegister = new CashRegister(startingBalance);
+    }
 
-	public TotalPrice isEligibleForDiscount(int customerID) {
-		return null;
-	}
+    public SaleDTO scanItem(int quantity, int itemID) {
+        Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID);
+        return sale.sellItem(quantity, scannedItem);
+    }
 
-	public AmountOfMoney pay(AmountOfMoney paidAmount) {
-		return sale.payForSale(paidAmount);
-	}
+    public TotalPriceDTO finalizeSale() {
+        return sale.finalizeSale();
+    }
+
+    public TotalPriceDTO isEligibleForDiscount(int customerID) {
+        return sale.getDiscount(registryCreator.getDiscountRegistry().getDiscount(customerID));
+    }
+
+    public AmountOfMoney pay(AmountOfMoney paidAmount) {
+        AmountOfMoney change = sale.payForSale(paidAmount);
+        reciept = new Reciept(sale.getSaleData(), change, paidAmount);
+
+        return change;
+
+    }
 
 }

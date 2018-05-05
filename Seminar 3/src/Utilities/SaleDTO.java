@@ -1,7 +1,7 @@
-package DTO;
+package Utilities;
 
-import Integration.AmountOfMoney;
 import Integration.Item;
+import Model.SoldItems;
 import java.util.ArrayList;
 
 public class SaleDTO {
@@ -12,10 +12,10 @@ public class SaleDTO {
 
 	private final Item lastSoldItem;
 
-	private final ArrayList<Item> soldItems;
+	private final SoldItems soldItems;
 
 
-    public SaleDTO(long timeOfSale, AmountOfMoney runningTotal, Item lastSoldItem, ArrayList<Item> soldItems) {
+    public SaleDTO(long timeOfSale, AmountOfMoney runningTotal, Item lastSoldItem, SoldItems soldItems) {
         this.timeOfSale = timeOfSale;
         this.runningTotal = runningTotal;
         this.lastSoldItem = lastSoldItem;
@@ -34,7 +34,7 @@ public class SaleDTO {
         return lastSoldItem;
     }
 
-    public ArrayList<Item> getSoldItems() {
+    public SoldItems getSoldItems() {
         return soldItems;
     }
     

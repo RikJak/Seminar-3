@@ -1,5 +1,7 @@
 package Integration;
 
+import Utilities.AmountOfMoney;
+
 public class Item {
 
 	private ItemIdentifier itemID;

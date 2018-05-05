@@ -1,5 +1,6 @@
 package Integration;
 
+import Utilities.AmountOfMoney;
 import java.util.*;
 
 public class ItemRegistry {

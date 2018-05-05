@@ -1,4 +1,4 @@
-package Integration;
+package Utilities;
 
 public class AmountOfMoney {
 
@@ -11,7 +11,7 @@ public class AmountOfMoney {
 	}
 
 	public void updateAmount(double newAmount) {
-            
+            amount = newAmount;
 	}
         
         public void add(AmountOfMoney addition){

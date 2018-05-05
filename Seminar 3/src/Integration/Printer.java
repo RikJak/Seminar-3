@@ -2,13 +2,25 @@ package Integration;
 
 import Model.Reciept;
 
+/**
+ *
+ * @author Rikard
+ */
 public class Printer {
 
-	public Printer Printer() {
+    /**
+     *
+     * @return
+     */
+    public Printer Printer() {
 		return null;
 	}
 
-	public void printReciept(Reciept recieptOfSale) {
+    /**
+     *
+     * @param recieptOfSale
+     */
+    public void printReciept(Reciept recieptOfSale) {
 
 	}
 

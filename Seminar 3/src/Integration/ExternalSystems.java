@@ -3,21 +3,40 @@ package Integration;
 import Utilities.SaleDTO;
 import Model.Reciept;
 
+/**
+ *
+ * @author Rikard
+ */
 public class ExternalSystems {
 
-	public void updateInventorySystem(SaleDTO saleInformation) {
+    /**
+     *
+     * @param saleInformation
+     */
+    public void updateInventorySystem(SaleDTO saleInformation) {
 
 	}
 
-	public void updateAccountingSystem(SaleDTO saleInformation) {
+    /**
+     *
+     * @param saleInformation
+     */
+    public void updateAccountingSystem(SaleDTO saleInformation) {
 
 	}
 
-	public ExternalSystems(){
+    /**
+     *
+     */
+    public ExternalSystems(){
 
 	}
 
-	public void printReciept(Reciept receipt) {
+    /**
+     *
+     * @param receipt
+     */
+    public void printReciept(Reciept receipt) {
 
 	}
 

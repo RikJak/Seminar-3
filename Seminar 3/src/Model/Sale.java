@@ -6,6 +6,10 @@ import Integration.Item;
 import Integration.DiscountRegistry;
 import Utilities.*;
 
+/**
+ *
+ * @author Rikard
+ */
 public class Sale {
 
 	private Item scannedItems;
@@ -20,7 +24,11 @@ public class Sale {
         
         private boolean ongoingSale;
 
-	public Sale(CashRegister cashRegister) {
+    /**
+     *
+     * @param cashRegister
+     */
+    public Sale(CashRegister cashRegister) {
                 saleInformation = new SaleInformation(System.nanoTime());
                 this.cashRegister = cashRegister;
                 totalPrice = new TotalPrice(saleInformation);
@@ -31,13 +39,23 @@ public class Sale {
             saleInformation.setTimeOfSale(System.nanoTime());
 	}
 
-	public TotalPriceDTO finalizeSale() {
+    /**
+     *
+     * @return
+     */
+    public TotalPriceDTO finalizeSale() {
                 totalPrice = new TotalPrice(saleInformation);
                 ongoingSale = false;
                 return new TotalPriceDTO(totalPrice);
 	}
 
-	public SaleDTO sellItem(int quantity,Item item) {
+    /**
+     *
+     * @param quantity
+     * @param item
+     * @return
+     */
+    public SaleDTO sellItem(int quantity,Item item) {
             if(ongoingSale){
 		for(int i = 0; i<quantity;i++){
                     saleInformation.updateSale(item);
@@ -47,16 +65,29 @@ public class Sale {
             
         }
 
-	public SaleDTO getSaleData() {
+    /**
+     *
+     * @return
+     */
+    public SaleDTO getSaleData() {
 		return saleInformation.getSaleInformation();
 	}
 
-
-	public AmountOfMoney payForSale(AmountOfMoney amountPaid) {
+    /**
+     *
+     * @param amountPaid
+     * @return
+     */
+    public AmountOfMoney payForSale(AmountOfMoney amountPaid) {
 		return cashRegister.registerPayment(amountPaid, totalPrice);
 	}
 
-	public TotalPriceDTO getDiscount(Discount discount) {
+    /**
+     *
+     * @param discount
+     * @return
+     */
+    public TotalPriceDTO getDiscount(Discount discount) {
 		totalPrice.applyDiscount(discount);
                 return new TotalPriceDTO(totalPrice);
 	}

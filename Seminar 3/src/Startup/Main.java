@@ -3,8 +3,16 @@ import Controller.*;
 import Integration.*;
 import View.*;
 
-
+/**
+ *
+ * @author Rikard
+ */
 public class Main {
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
   
         RegistryCreator registries = new RegistryCreator();

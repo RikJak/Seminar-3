@@ -6,13 +6,21 @@ import Utilities.*;
 import Model.SaleInformation;
 import Model.Tax;
 
+/**
+ *
+ * @author Rikard
+ */
 public class TotalPrice {
 
 	private  AmountOfMoney price;
 
 	private double tax;
 
-	public TotalPrice(SaleInformation finalSaleInfo) {
+    /**
+     *
+     * @param finalSaleInfo
+     */
+    public TotalPrice(SaleInformation finalSaleInfo) {
 		price = finalSaleInfo.getRunningTotal();
                 tax = Tax.getCurrenttaxRates();
                 addTax();
@@ -22,11 +30,19 @@ public class TotalPrice {
             price.updateAmount(price.getAmount()*tax);
 	}
 
-	public void applyDiscount(Discount discount) {
+    /**
+     *
+     * @param discount
+     */
+    public void applyDiscount(Discount discount) {
             price.updateAmount(price.getAmount()*discount.getDiscount());
 	}
 
-	public AmountOfMoney getPrice() {
+    /**
+     *
+     * @return
+     */
+    public AmountOfMoney getPrice() {
 		return price;
 	}
 

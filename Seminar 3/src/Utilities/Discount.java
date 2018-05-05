@@ -12,10 +12,18 @@ package Utilities;
 public class Discount {
    private final double disountRate;
 
+    /**
+     *
+     * @param disountRate
+     */
     public Discount(double disountRate) {
         this.disountRate = disountRate;
     }
     
+    /**
+     *
+     * @return
+     */
     public double getDiscount() {
         return disountRate;
     }

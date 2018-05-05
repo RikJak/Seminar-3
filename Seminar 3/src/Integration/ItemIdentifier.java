@@ -13,6 +13,10 @@ public class ItemIdentifier {
 
     int itemID;
 
+    /**
+     *
+     * @param id
+     */
     public ItemIdentifier(int id) {
         itemID = id;
     }
@@ -28,10 +32,13 @@ public class ItemIdentifier {
 
     @Override
     public int hashCode() {
-
-        return itemID;
+        return getItemID();
     }
 
+    /**
+     *
+     * @return
+     */
     public int getItemID() {
         return itemID;
     }

@@ -5,12 +5,22 @@ import Utilities.*;
 
 
 */
+
+/**
+ *
+ * @author Rikard
+ */
+
 public class DiscountRegistry {
 
 	private HashMap<Integer,Double> elligibleID;
 
-
-	public Discount getDiscount(int customerID) {
+    /**
+     *
+     * @param customerID
+     * @return
+     */
+    public Discount getDiscount(int customerID) {
                 Integer ID = new Integer(customerID);
 		if(elligibleID.containsKey(ID)){
                     //System.out.println("Integration.DiscountRegistry.getDiscount()");
@@ -21,7 +31,10 @@ public class DiscountRegistry {
                 }
 	}
 
-	public DiscountRegistry() {
+    /**
+     *
+     */
+    public DiscountRegistry() {
             elligibleID = new HashMap<Integer, Double>();
            elligibleID.put(new Integer(19931128), 0.1);
            elligibleID.put(new Integer(19980523), 0.5);

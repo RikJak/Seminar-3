@@ -4,6 +4,10 @@ import Integration.Item;
 import Model.SoldItems;
 import java.util.ArrayList;
 
+/**
+ *
+ * @author Rikard
+ */
 public class SaleDTO {
 
 	private final long timeOfSale;
@@ -14,7 +18,13 @@ public class SaleDTO {
 
 	private final SoldItems soldItems;
 
-
+    /**
+     *
+     * @param timeOfSale
+     * @param runningTotal
+     * @param lastSoldItem
+     * @param soldItems
+     */
     public SaleDTO(long timeOfSale, AmountOfMoney runningTotal, Item lastSoldItem, SoldItems soldItems) {
         this.timeOfSale = timeOfSale;
         this.runningTotal = runningTotal;
@@ -22,18 +32,34 @@ public class SaleDTO {
         this.soldItems = soldItems;
     }
 
+    /**
+     *
+     * @return
+     */
     public long getTimeOfSale() {
         return timeOfSale;
     }
 
+    /**
+     *
+     * @return the current amount of money
+     */
     public AmountOfMoney getRunningTotal() {
         return runningTotal;
     }
 
+    /**
+     *
+     * @return the last item scanned.
+     */
     public Item getLastSoldItem() {
         return lastSoldItem;
     }
 
+    /**
+     *
+     * @return
+     */
     public SoldItems getSoldItems() {
         return soldItems;
     }

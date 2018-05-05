@@ -3,16 +3,28 @@ package Integration;
 import Utilities.AmountOfMoney;
 import java.util.*;
 
+/**
+ *
+ * @author Rikard
+ */
 public class ItemRegistry {
 
 	private HashMap<ItemIdentifier,Item> itemRegistry;
 
-	public Item getItem(int itemID) {
+    /**
+     *
+     * @param itemID
+     * @return
+     */
+    public Item getItem(int itemID) {
 		return itemRegistry.get(new ItemIdentifier(itemID));
                 
 	}
 
-	public ItemRegistry(){
+    /**
+     *
+     */
+    public ItemRegistry(){
 		
             itemRegistry = new HashMap<>(10);
                 Item car = new Item(111,new ItemDescription("This is a car"),new AmountOfMoney(10000),"Vehicle");

@@ -15,10 +15,18 @@ import Model.TotalPrice;
 public class TotalPriceDTO {
     private final AmountOfMoney totalPrice;
 
+    /**
+     *
+     * @param totalPrice
+     */
     public TotalPriceDTO(TotalPrice totalPrice) {
         this.totalPrice = totalPrice.getPrice();
     }
 
+    /**
+     *
+     * @return
+     */
     public AmountOfMoney getTotalPrice() {
         return totalPrice;
     }

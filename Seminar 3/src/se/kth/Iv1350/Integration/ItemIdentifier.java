@@ -18,10 +18,9 @@ public class ItemIdentifier {
     }
 
     /**
-     * {@inheritDoc}
-     *
-     * @param o
-     * @return
+     * Checks if an object is equal to this.
+     * @param o the object to be checked.
+     * @return result of comparison.
      */
     @Override
     public boolean equals(Object o) {
@@ -33,9 +32,9 @@ public class ItemIdentifier {
     }
 
     /**
-     * {@inheritDoc}
+     * Returns a HashCode for this object.
      *
-     * @return
+     * @return the HashCode for this object.
      */
     @Override
     public int hashCode() {

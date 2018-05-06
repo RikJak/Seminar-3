@@ -11,8 +11,7 @@ public class Tax {
 	private double currenttaxRates = 1.25;
 
     /**
-     * The current taxRate
-     * @param currentTaxRates
+     * Initializes the Tax class
      */
     public Tax() {
         
@@ -27,8 +26,8 @@ public class Tax {
 */
 
     /**
-     *
-     * @return
+     *  Returns the current tax rate
+     * @return the current tax rate
      */
 
 

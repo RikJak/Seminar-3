@@ -55,7 +55,7 @@ public class Controller {
      * @param quantity how many of this Item have been added.
      * @param itemID the ID of the scanned item. Used to get the Item from the registry.
      * @return the DTO containing the current state of the sale.
-     * @throws se.kth.iv1350.Integration.ItemNotFoundException
+     * @throws se.kth.iv1350.Integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
      */
     public SaleDTO scanItem(int quantity, int itemID) throws ItemNotFoundException{
         Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID);
@@ -66,7 +66,7 @@ public class Controller {
      * It is used if no quantity is used.
      * @param itemID the item to be added.
      * @return the DTO containing the current state of the sale.
-     * @throws se.kth.iv1350.Integration.ItemNotFoundException
+     * @throws se.kth.iv1350.Integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
      */
      public SaleDTO scanItem( int itemID)throws ItemNotFoundException {
 

@@ -1,5 +1,5 @@
 
-package se.kth.IV1350.Integration;
+package se.kth.iv1350.Integration;
 
 /**
  * This identifies an Item and is used to compare if they are the same.

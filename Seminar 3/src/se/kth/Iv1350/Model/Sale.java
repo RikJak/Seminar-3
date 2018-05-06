@@ -1,11 +1,11 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
-import se.kth.IV1350.Utilities.Discount;
-import se.kth.IV1350.Utilities.TotalPriceDTO;
-import se.kth.IV1350.Utilities.SaleDTO;
-import se.kth.IV1350.Utilities.AmountOfMoney;
-import se.kth.IV1350.Integration.Item;
-import se.kth.IV1350.Integration.DiscountRegistry;
+import se.kth.iv1350.Utilities.Discount;
+import se.kth.iv1350.Utilities.TotalPriceDTO;
+import se.kth.iv1350.Utilities.SaleDTO;
+import se.kth.iv1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Integration.Item;
+import se.kth.iv1350.Integration.DiscountRegistry;
 
 /**
  * This is the central class of the program. 
@@ -13,10 +13,6 @@ import se.kth.IV1350.Integration.DiscountRegistry;
  * @author Rikard
  */
 public class Sale {
-
-    private Item scannedItems;
-
-    private SaleInformation currentSaleInfo;
 
     private TotalPrice totalPrice;
 
@@ -34,7 +30,7 @@ public class Sale {
     public Sale(CashRegister cashRegister) {
         saleInformation = new SaleInformation();
         this.cashRegister = cashRegister;
-        totalPrice = new TotalPrice(saleInformation);
+        setTotalPrice();
         ongoingSale = true;
     }
 
@@ -44,9 +40,13 @@ public class Sale {
      * @return the final price of the transaction.
      */
     public TotalPriceDTO finalizeSale() {
-        totalPrice = new TotalPrice(saleInformation);
+        setTotalPrice();
         ongoingSale = false;
         return new TotalPriceDTO(totalPrice);
+    }
+    
+    private void setTotalPrice(){
+        totalPrice = new TotalPrice(saleInformation.getRunningTotal());
     }
 
     /**
@@ -56,7 +56,10 @@ public class Sale {
      * @param item the item to be added.
      * @return a DTO containing the current state of the transaction. 
      */
-    public SaleDTO sellItem(int quantity, Item item) {
+    public SaleDTO sellItem(int quantity, Item item) throws IllegalArgumentException{
+        if(quantity<1){
+            throw new IllegalArgumentException("Quantity must be positive");
+        }
         if (ongoingSale) {
             for (int i = 0; i < quantity; i++) {
                 saleInformation.updateSale(item);
@@ -79,20 +82,29 @@ public class Sale {
      * Handles the payment for the transaction.
      * @param amountPaid the amount of money handed over by the customer.
      * @return the change.
-     * @throws se.kth.IV1350.Model.InsufficientFundsException
+     * @throws se.kth.iv1350.Model.InsufficientFundsException
      */
     public AmountOfMoney payForSale(AmountOfMoney amountPaid) throws InsufficientFundsException{
-        return cashRegister.registerPayment(amountPaid, totalPrice.getPrice());
+        AmountOfMoney change = new AmountOfMoney(0);
+        if(!ongoingSale){
+           change = cashRegister.registerPayment(amountPaid, totalPrice.getPrice());
+       }
+       
+        return change;
     }
 
     /**
      * Returns a new total amount depending on the provided discount.
+     * It will only apply the discount if the sale has been finished.
      * @param discount the discount that is to be added to the total price.
      * @return the new total.
      */
     public TotalPriceDTO getDiscount(Discount discount) {
-        totalPrice.applyDiscount(discount);
+        if(!ongoingSale){
+        totalPrice.applyDiscount(discount); 
+        }
         return new TotalPriceDTO(totalPrice);
+
     }
 
 }

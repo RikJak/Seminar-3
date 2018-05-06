@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.IV1350.Integration;
+package se.kth.iv1350.Integration;
 
 /**
  *

@@ -1,6 +1,6 @@
-package se.kth.IV1350.Integration;
+package se.kth.iv1350.Integration;
 
-import se.kth.IV1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Utilities.AmountOfMoney;
 import java.util.*;
 
 /**
@@ -15,7 +15,7 @@ public class ItemRegistry {
      *Retrieves an item from the registry.
      * @param itemID identifies which item is sought.
      * @return the item matching the provided ID.
-     * @throws se.kth.IV1350.Integration.ItemNotFoundException
+     * @throws se.kth.iv1350.Integration.ItemNotFoundException
      */
     public Item getItem(int itemID) throws ItemNotFoundException{
         ItemIdentifier ID = new ItemIdentifier(itemID);

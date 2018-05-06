@@ -1,6 +1,6 @@
-package se.kth.IV1350.Integration;
+package se.kth.iv1350.Integration;
 
-import se.kth.IV1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Utilities.AmountOfMoney;
 
 /**
  * This class represents an Item that exists in the store.

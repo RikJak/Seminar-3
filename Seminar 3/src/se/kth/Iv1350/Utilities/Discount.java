@@ -1,5 +1,5 @@
 
-package se.kth.IV1350.Utilities;
+package se.kth.iv1350.Utilities;
 
 /**
  * This is the discount that a customer gets.

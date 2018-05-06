@@ -1,7 +1,7 @@
-package se.kth.IV1350.Utilities;
+package se.kth.iv1350.Utilities;
 
-import se.kth.IV1350.Integration.Item;
-import se.kth.IV1350.Model.SoldItems;
+import se.kth.iv1350.Integration.Item;
+import se.kth.iv1350.Model.SoldItems;
 import java.util.ArrayList;
 
 /**

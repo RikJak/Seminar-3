@@ -1,7 +1,7 @@
-package se.kth.IV1350.Integration;
+package se.kth.iv1350.Integration;
 
-import se.kth.IV1350.Utilities.SaleDTO;
-import se.kth.IV1350.Model.Reciept;
+import se.kth.iv1350.Utilities.SaleDTO;
+import se.kth.iv1350.Model.Receipt;
 
 /**
  *This class represents external systems, ie. the accounting system and the inventory system.

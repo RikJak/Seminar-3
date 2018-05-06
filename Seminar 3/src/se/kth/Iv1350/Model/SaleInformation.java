@@ -1,9 +1,9 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
-import se.kth.IV1350.Utilities.SaleDTO;
-import se.kth.IV1350.Utilities.AmountOfMoney;
-import se.kth.IV1350.Integration.Item;
-import se.kth.IV1350.Integration.ItemIdentifier;
+import se.kth.iv1350.Utilities.SaleDTO;
+import se.kth.iv1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Integration.Item;
+import se.kth.iv1350.Integration.ItemIdentifier;
 import java.util.*;
 
 /**
@@ -25,7 +25,7 @@ public class SaleInformation {
      * @return the final price.
      */
     public TotalPrice getFinalAmount() {
-        return new TotalPrice(this);
+        return new TotalPrice(runningTotal);
     }
 
     /**

@@ -1,14 +1,14 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
-import se.kth.IV1350.Utilities.SaleDTO;
-import se.kth.IV1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Utilities.SaleDTO;
+import se.kth.iv1350.Utilities.AmountOfMoney;
 
 /**
  * Contains the transaction data.
  * It is used to print a receipt that is to be given to the customer.
  * @author Rikard
  */
-public class Reciept {
+public class Receipt {
         private SaleDTO saleInformation;
         private AmountOfMoney change;
         private AmountOfMoney paidMoney;
@@ -19,7 +19,7 @@ public class Reciept {
      * @param change how much change was paid back.
      * @param paidMoney How much the customer paid.
      */
-    public Reciept(SaleDTO saleInformation, AmountOfMoney change, AmountOfMoney paidMoney) {
+    public Receipt(SaleDTO saleInformation, AmountOfMoney change, AmountOfMoney paidMoney) {
         this.saleInformation = saleInformation;
         this.change = change;
         this.paidMoney = paidMoney;

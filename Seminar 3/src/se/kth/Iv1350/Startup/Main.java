@@ -1,8 +1,8 @@
-package se.kth.IV1350.Startup;
-import se.kth.IV1350.View.View;
-import se.kth.IV1350.Integration.Printer;
-import se.kth.IV1350.Integration.RegistryCreator;
-import se.kth.Iv1350.Controller.Controller;
+package se.kth.iv1350.Startup;
+import se.kth.iv1350.View.View;
+import se.kth.iv1350.Integration.Printer;
+import se.kth.iv1350.Integration.RegistryCreator;
+import se.kth.iv1350.Controller.Controller;
 
 /**
  *

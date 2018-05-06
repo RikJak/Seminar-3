@@ -1,7 +1,7 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
-import se.kth.IV1350.Integration.Item;
-import se.kth.IV1350.Integration.ItemIdentifier;
+import se.kth.iv1350.Integration.Item;
+import se.kth.iv1350.Integration.ItemIdentifier;
 import java.util.*;
 
 

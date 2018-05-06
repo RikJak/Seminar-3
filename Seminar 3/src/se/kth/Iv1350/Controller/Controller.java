@@ -1,16 +1,16 @@
-package se.kth.Iv1350.Controller;
+package se.kth.iv1350.Controller;
 
-import se.kth.IV1350.Utilities.TotalPriceDTO;
-import se.kth.IV1350.Utilities.SaleDTO;
-import se.kth.IV1350.Utilities.AmountOfMoney;
-import se.kth.IV1350.Model.CashRegister;
-import se.kth.IV1350.Model.Reciept;
-import se.kth.IV1350.Model.Sale;
-import se.kth.IV1350.Model.InsufficientFundsException;
-import se.kth.IV1350.Integration.Printer;
-import se.kth.IV1350.Integration.Item;
-import se.kth.IV1350.Integration.RegistryCreator;
-import se.kth.IV1350.Integration.ItemNotFoundException;
+import se.kth.iv1350.Utilities.TotalPriceDTO;
+import se.kth.iv1350.Utilities.SaleDTO;
+import se.kth.iv1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Model.CashRegister;
+import se.kth.iv1350.Model.Receipt;
+import se.kth.iv1350.Model.Sale;
+import se.kth.iv1350.Model.InsufficientFundsException;
+import se.kth.iv1350.Integration.Printer;
+import se.kth.iv1350.Integration.Item;
+import se.kth.iv1350.Integration.RegistryCreator;
+import se.kth.iv1350.Integration.ItemNotFoundException;
 
 /**
  * This class handles the interaction between the 'user' and the program itself. It delegates calls from the view to the correct place.
@@ -22,7 +22,7 @@ public class Controller {
 
     private RegistryCreator registryCreator;
 
-    private Reciept reciept;
+    private Receipt reciept;
     
     private Printer printer;
 
@@ -55,7 +55,7 @@ public class Controller {
      * @param quantity how many of this Item have been added.
      * @param itemID the ID of the scanned item. Used to get the Item from the registry.
      * @return the DTO containing the current state of the sale.
-     * @throws se.kth.IV1350.Integration.ItemNotFoundException
+     * @throws se.kth.iv1350.Integration.ItemNotFoundException
      */
     public SaleDTO scanItem(int quantity, int itemID) throws ItemNotFoundException{
         Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID);
@@ -66,7 +66,7 @@ public class Controller {
      * It is used if no quantity is used.
      * @param itemID the item to be added.
      * @return the DTO containing the current state of the sale.
-     * @throws se.kth.IV1350.Integration.ItemNotFoundException
+     * @throws se.kth.iv1350.Integration.ItemNotFoundException
      */
      public SaleDTO scanItem( int itemID)throws ItemNotFoundException {
 
@@ -93,16 +93,16 @@ public class Controller {
 
     /**
      * This method sends the payment to the sale.
-     * It uses the final sale information to generate a reciept which is then printed.
+     * It uses the final sale information to generate a receipt which is then printed.
      * It also updates the external systems.
      * @param paidAmount the amount of money the customer has paid.
      * @return the change remaining after paying.
-     * @throws se.kth.IV1350.Model.InsufficientFundsException 
+     * @throws se.kth.iv1350.Model.InsufficientFundsException 
      */
     public AmountOfMoney pay(AmountOfMoney paidAmount) throws InsufficientFundsException{
         AmountOfMoney change = sale.payForSale(paidAmount);
         SaleDTO finalSaleInformation = sale.getSaleData();
-        reciept = new Reciept(finalSaleInformation, change, paidAmount);
+        reciept = new Receipt(finalSaleInformation, change, paidAmount);
         registryCreator.getExternalSystems().updateAccountingSystem(finalSaleInformation);
         registryCreator.getExternalSystems().updateInventorySystem(finalSaleInformation);
         printer.printReciept(reciept);

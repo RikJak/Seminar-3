@@ -1,5 +1,5 @@
-package se.kth.IV1350.Integration;
-import se.kth.IV1350.Utilities.Discount;
+package se.kth.iv1350.Integration;
+import se.kth.iv1350.Utilities.Discount;
 import java.util.*;
 /*
 

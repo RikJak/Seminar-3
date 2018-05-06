@@ -1,6 +1,6 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
-import se.kth.IV1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Utilities.AmountOfMoney;
 import java.security.InvalidParameterException;
 
 /**
@@ -17,7 +17,7 @@ public class CashRegister {
      * @param amountPaid the amount of money paid by the customer.
      * @param finalPrice the price to be paid.
      * @return the difference between the two amounts. The change given back to the customer.
-     * @throws se.kth.IV1350.Model.InsufficientFundsException
+     * @throws se.kth.iv1350.Model.InsufficientFundsException
      */
     public AmountOfMoney registerPayment(AmountOfMoney amountPaid, AmountOfMoney finalPrice) throws InsufficientFundsException {
 

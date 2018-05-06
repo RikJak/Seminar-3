@@ -1,4 +1,4 @@
-package se.kth.IV1350.Integration;
+package se.kth.iv1350.Integration;
 
 /**
  * Creates all registries

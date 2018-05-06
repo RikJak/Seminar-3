@@ -1,11 +1,11 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
 
-import se.kth.IV1350.Utilities.Discount;
-import se.kth.IV1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Utilities.Discount;
+import se.kth.iv1350.Utilities.AmountOfMoney;
 
-import se.kth.IV1350.Model.SaleInformation;
-import se.kth.IV1350.Model.Tax;
+import se.kth.iv1350.Model.SaleInformation;
+import se.kth.iv1350.Model.Tax;
 
 /**
  * Contains the final price of the transaction.
@@ -22,10 +22,11 @@ public class TotalPrice {
      * It also adds the current tax rate to the price.
      * @param finalSaleInfo the information of the sale that was finished.
      */
-    public TotalPrice(SaleInformation finalSaleInfo) {
-		price = finalSaleInfo.getRunningTotal();
-                tax = Tax.getCurrenttaxRates();
-                addTax();
+    public TotalPrice(AmountOfMoney finalSaleInfo) {
+		price = finalSaleInfo;
+                Tax taxRate = new Tax();
+                tax = taxRate.getCurrenttaxRates();
+               addTax();
 	}
 
 	private void addTax() {

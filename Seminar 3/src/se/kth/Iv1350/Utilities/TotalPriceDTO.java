@@ -1,6 +1,6 @@
-package se.kth.IV1350.Utilities;
+package se.kth.iv1350.Utilities;
 
-import se.kth.IV1350.Model.TotalPrice;
+import se.kth.iv1350.Model.TotalPrice;
 
 /**
  * A DTO for the TotalPrice class.

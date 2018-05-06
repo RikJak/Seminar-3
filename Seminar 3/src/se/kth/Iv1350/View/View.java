@@ -1,13 +1,13 @@
-package se.kth.IV1350.View;
+package se.kth.iv1350.View;
 
-import se.kth.IV1350.Utilities.TotalPriceDTO;
-import se.kth.IV1350.Utilities.SaleDTO;
-import se.kth.IV1350.Utilities.AmountOfMoney;
-import se.kth.Iv1350.Controller.Controller;
-import se.kth.IV1350.Integration.ItemNotFoundException;
-import se.kth.IV1350.Model.InsufficientFundsException;
+import se.kth.iv1350.Utilities.TotalPriceDTO;
+import se.kth.iv1350.Utilities.SaleDTO;
+import se.kth.iv1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.Controller.Controller;
+import se.kth.iv1350.Integration.ItemNotFoundException;
+import se.kth.iv1350.Model.InsufficientFundsException;
 
-import se.kth.IV1350.Model.TotalPrice;
+import se.kth.iv1350.Model.TotalPrice;
 import java.util.Arrays;
 
 /**
@@ -42,7 +42,7 @@ public class View{
 
             System.out.println(lastScan);
             System.out.println(lastScan.getSoldItems());
-                }catch(ItemNotFoundException e){
+                }catch(ItemNotFoundException|IllegalArgumentException e){
                 System.err.println(e);
     }
             TotalPriceDTO total = controller.finalizeSale();
@@ -50,17 +50,12 @@ public class View{
             total = controller.isEligibleForDiscount(19931128);
             System.out.println("Price after discount: " + total);
             try{
-            System.out.println("You paid 100000 and your change is: " + controller.pay(new AmountOfMoney(3000)));
+            System.out.println("You paid 100000 and your change is: " + controller.pay(new AmountOfMoney(3200)));
             }catch(InsufficientFundsException e){
                     System.out.println(e);
                     }
             
             System.out.println("The current balance in the cashRegister is: " + controller.getCashRegisterBalance());
-           /* controller.startNewSale();
-            int[] itemsToScan= {111,300,200};
-            SaleDTO[] scans = scanItems(itemsToScan);
-            System.out.println(Arrays.toString(scans));
-            */
             controller.startNewSale();
             try{
             System.out.println(controller.scanItem(2, 200));
@@ -68,7 +63,7 @@ public class View{
             lastScan= controller.scanItem(1, 113);
             System.out.println(lastScan);
             System.out.println(lastScan.getSoldItems());
-            }catch(ItemNotFoundException e){
+            }catch(ItemNotFoundException|IllegalArgumentException e){
                 System.out.println(e.toString());
             }
             total = controller.finalizeSale();

@@ -1,6 +1,6 @@
-package se.kth.IV1350.Model;
+package se.kth.iv1350.Model;
 
-import se.kth.IV1350.Integration.TaxRates;
+import se.kth.iv1350.Integration.TaxRates;
 
 /**
  *
@@ -8,14 +8,14 @@ import se.kth.IV1350.Integration.TaxRates;
  */
 public class Tax {
 
-	private static double currenttaxRates = 1.25;
+	private double currenttaxRates = 1.25;
 
     /**
-     *
+     * The current taxRate
      * @param currentTaxRates
      */
-    public Tax(TaxRates currentTaxRates) {
-		//return null;
+    public Tax() {
+        
 	}
         
         
@@ -32,7 +32,7 @@ public class Tax {
      */
 
 
-    public static double getCurrenttaxRates() {
+    public double getCurrenttaxRates() {
         return currenttaxRates;
     }
 }

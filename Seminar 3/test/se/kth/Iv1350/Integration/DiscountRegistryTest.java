@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.Iv1350.Integration;
+package se.kth.iv1350.Integration;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import se.kth.iv1350.Integration.DiscountRegistry;
-import se.kth.iv1350.Utilities.Discount;
+import se.kth.iv1350.integration.DiscountRegistry;
+import se.kth.iv1350.utilities.Discount;
 
 /**
  *

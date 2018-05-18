@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.Iv1350.Controller;
+package se.kth.iv1350.Controller;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,16 +11,16 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import se.kth.iv1350.Controller.Controller;
-import se.kth.iv1350.Integration.Item;
-import se.kth.iv1350.Integration.ItemNotFoundException;
-import se.kth.iv1350.Integration.Printer;
-import se.kth.iv1350.Integration.RegistryCreator;
-import se.kth.iv1350.Model.CashRegister;
-import se.kth.iv1350.Model.Sale;
-import se.kth.iv1350.Utilities.AmountOfMoney;
-import se.kth.iv1350.Utilities.SaleDTO;
-import se.kth.iv1350.Utilities.TotalPriceDTO;
+import se.kth.iv1350.controller.Controller;
+import se.kth.iv1350.integration.Item;
+import se.kth.iv1350.integration.ItemNotFoundException;
+import se.kth.iv1350.integration.Printer;
+import se.kth.iv1350.integration.RegistryCreator;
+import se.kth.iv1350.model.CashRegister;
+import se.kth.iv1350.model.Sale;
+import se.kth.iv1350.utilities.AmountOfMoney;
+import se.kth.iv1350.utilities.SaleDTO;
+import se.kth.iv1350.utilities.TotalPriceDTO;
 
 /**
  *

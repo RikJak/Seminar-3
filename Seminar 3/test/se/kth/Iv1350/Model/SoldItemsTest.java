@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.Iv1350.Model;
+package se.kth.iv1350.Model;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,10 +11,10 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import se.kth.iv1350.Integration.Item;
-import se.kth.iv1350.Integration.ItemDescription;
-import se.kth.iv1350.Model.SoldItems;
-import se.kth.iv1350.Utilities.AmountOfMoney;
+import se.kth.iv1350.integration.Item;
+import se.kth.iv1350.integration.ItemDescription;
+import se.kth.iv1350.model.SoldItems;
+import se.kth.iv1350.utilities.AmountOfMoney;
 
 /**
  *

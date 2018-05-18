@@ -1,21 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package se.kth.iv1350.integration;
 
 /**
- *
+ * This exception is thrown if the item database fails. 
  * @author Rikard
  */
-public class DatabaseFailureException extends Exception {
-
+public class DatabaseFailureException extends RuntimeException {
+    int itemThatCrashedDatabase;
     /**
      * Creates a new instance of <code>DatabaseFailureException</code> without
      * detail message.
+     * @param itemID
      */
-    public DatabaseFailureException() {
+    public DatabaseFailureException(int itemID) {
+        super("DatabaseFailure. Caused by item: " + itemID);
+        itemThatCrashedDatabase = itemID;
     }
 
     /**
@@ -27,4 +25,5 @@ public class DatabaseFailureException extends Exception {
     public DatabaseFailureException(String msg) {
         super(msg);
     }
+    
 }

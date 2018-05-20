@@ -16,6 +16,11 @@ import se.kth.iv1350.utilities.AmountOfMoney;
 public class PrintRevenueToFile implements TotalRevenueView{
     private AmountOfMoney total = new AmountOfMoney(0);
     private int transactionNO = 0;
+
+    /**
+     *  Updates the revenue with the value of the last transaction and then prints it to a file.
+     * @param amountPaid the amount paid in the last transaction.
+     */
     @Override
     public void newPayment(AmountOfMoney amountPaid) {
         total.add(amountPaid);

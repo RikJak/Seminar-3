@@ -43,6 +43,10 @@ public class LogToFile {
         }
     }
     
+    /**
+     *  sets the file that should be printed to.
+     * @param fileName
+     */
     public void setFile(String fileName){
         log = new File(fileName);
     }

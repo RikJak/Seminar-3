@@ -121,6 +121,7 @@ public class Controller {
     public AmountOfMoney getCashRegisterBalance(){
        return cashRegister.getBalance();
     }
+    
     /**
      * Sets the viewer that is to be used by the cashRegister.
      * @param viewer is the TotalRevenueView to be used by the cash Register

@@ -95,6 +95,7 @@ public class ControllerTest {
 
     /**
      * Test of pay method, of class Controller.
+     * @throws java.lang.Exception
      */
     @Test
     public void testPay() throws Exception {

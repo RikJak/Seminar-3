@@ -8,21 +8,28 @@ package se.kth.iv1350.view;
 import se.kth.iv1350.utilities.AmountOfMoney;
 
 /**
- *
+ *  A class that prints the total revenue to the console.
  * @author Rikard
  */
 public class RevenueDisplay implements TotalRevenueView {
 
     AmountOfMoney totalRevenue;
 
+    /**
+     * Creates a new instance of this object.
+     */
     public RevenueDisplay() {
         totalRevenue = new AmountOfMoney(0);
     }
 
+    /**
+     *  Updates the total revenue. It then constructs a string that is displayed in the console.
+     * @param amountPaid the amount paid in the last transaction.
+     */
     @Override
     public void newPayment(AmountOfMoney amountPaid) {
         totalRevenue.add(amountPaid);
-        StringBuilder finalString = new StringBuilder();
+       
         StringBuilder sb = new StringBuilder();
         int lengthOfSum = totalRevenue.toString().length();
         int width = lengthOfSum + 10;

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.iv1350.Integration;
+package se.kth.iv1350.integration;
 
 import se.kth.iv1350.utilities.AmountOfMoney;
 import org.junit.After;
@@ -46,7 +46,7 @@ public class ItemRegistryTest {
     public void testGetExistingItem() {
         System.out.println("getExistingItem");
         int itemID = 111;
-        ItemRegistry instance = new ItemRegistry();
+        ItemRegistry instance = ItemRegistry.getInstanceOf();
         Item expResult = new Item(111,new ItemDescription("This is a car"),new AmountOfMoney(10000),"Vehicle");
         try{
         Item result = instance.getItem(itemID);
@@ -61,7 +61,7 @@ public class ItemRegistryTest {
        public void testGetNonExistingItem() {
         System.out.println("getNonexistantItem");
         int itemID = 0;
-        ItemRegistry instance = new ItemRegistry();
+        ItemRegistry instance = ItemRegistry.getInstanceOf();
         Item expResult = null;
         try{
         Item result = instance.getItem(itemID);

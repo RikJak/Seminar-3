@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package se.kth.iv1350.Utilities;
+package se.kth.iv1350.utilities;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -45,7 +45,7 @@ public class DiscountTest {
     @Test
     public void testGetDiscount() {
         System.out.println("getDiscount");
-        DiscountRegistry reg = new DiscountRegistry();
+        DiscountRegistry reg = DiscountRegistry.getInstanceOf();
         Discount instance = reg.getDiscount(19931128);
         double expResult = 0.1;
         double result = instance.getDiscount();

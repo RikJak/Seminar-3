@@ -7,7 +7,7 @@ import java.util.*;
 */
 
 /**
- *This class is a mock database containing  customer IDs and their associated discounts.
+ *This class is a mock database containing  customer IDs and their associated discounts. It is a singelton.
  * @author Rikard
  */
 
@@ -44,7 +44,12 @@ public class DiscountRegistry {
            elligibleID.put(new Integer(19911121), 1.11);
 
 	}
-    public static DiscountRegistry getInstance(){
+
+    /**
+     *  Returns the DiscountRegistry
+     * @return the discountRegistry
+     */
+    public static DiscountRegistry getInstanceOf(){
         return DISCOUNT_REGISTRY;
     }
 }

@@ -41,6 +41,7 @@ public class CashRegisterTest {
 
     /**
      * Test of registerPayment method, of class CashRegister.
+     * @throws java.lang.Exception
      */
     @Test
     public void testRegisterPayment() throws Exception {

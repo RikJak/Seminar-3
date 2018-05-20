@@ -18,7 +18,7 @@ public class RegistryCreator {
     public RegistryCreator() {
         itemRegistry = ItemRegistry.getInstanceOf();
         externalSystems = new ExternalSystems();
-        discountRegistry = DiscountRegistry.getInstance();
+        discountRegistry = DiscountRegistry.getInstanceOf();
     }
 
     /**

@@ -15,7 +15,7 @@ import java.io.PrintWriter;
  * This class is used to write to a file. 
  * @author Rikard
  */
-public class ErrorLogger {
+public class LogToFile {
 
     File log;
     
@@ -23,7 +23,7 @@ public class ErrorLogger {
      *
      * @param fileName
      */
-    public ErrorLogger(String fileName) {
+    public LogToFile(String fileName) {
         setFile(fileName);
     }
     
@@ -38,6 +38,7 @@ public class ErrorLogger {
             fileWriter.println(message);
 
         } catch (IOException e) {
+            System.err.println("ERROR WRITING TO FILE");
             System.err.println(e);
         }
     }

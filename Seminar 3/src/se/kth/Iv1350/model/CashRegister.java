@@ -2,6 +2,9 @@ package se.kth.iv1350.model;
 
 import se.kth.iv1350.utilities.AmountOfMoney;
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.List;
+import se.kth.iv1350.view.TotalRevenueView;
 
 /**
  * This class handles payments. 
@@ -11,9 +14,11 @@ import java.security.InvalidParameterException;
 public class CashRegister {
 
     private AmountOfMoney balance;
+    private List<TotalRevenueView> revenueObservers = new ArrayList<>();
 
     /**
      * This method receives an amount of money from the customer as well as how much is to be paid.
+     * It calls any observers it has with the data it received.
      * @param amountPaid the amount of money paid by the customer.
      * @param finalPrice the price to be paid.
      * @return the difference between the two amounts. The change given back to the customer.
@@ -22,7 +27,9 @@ public class CashRegister {
     public AmountOfMoney registerPayment(AmountOfMoney amountPaid, AmountOfMoney finalPrice) throws InsufficientFundsException {
 
         AmountOfMoney change = calculateChange(amountPaid, finalPrice);
-
+        for(TotalRevenueView display:revenueObservers){
+        display.newPayment(finalPrice);
+        }
         return change;
 
     }
@@ -59,6 +66,22 @@ public class CashRegister {
      */
     public CashRegister(AmountOfMoney balance) {
         this.balance = balance;
+    }
+    /**
+     * Second constructor that takes and implementation of the the TotalRevenueView and adds it to the list of observers.
+     * @param balance is used to set the starting balance
+     * @param view is used to display something from the program.
+     */
+    public CashRegister(AmountOfMoney balance,TotalRevenueView view) {
+        this.balance = balance;
+        this.revenueObservers.add(view);
+    }
+    /**
+     * Adds an observer to the list.
+     * @param viewer the observer that is to be added;
+     */
+    public void setObserver(TotalRevenueView viewer){
+        this.revenueObservers.add(viewer);
     }
 
     /**

@@ -5,18 +5,23 @@
  */
 package se.kth.iv1350.view;
 
-import se.kth.iv1350.startup.LogToFile;
+import java.time.LocalDateTime;
+import se.kth.iv1350.utilities.LogToFile;
 import se.kth.iv1350.utilities.AmountOfMoney;
 
 /**
- *
+ *  Prints the revenue to a file.
  * @author Rikard
  */
 public class PrintRevenueToFile implements TotalRevenueView{
-    AmountOfMoney total = new AmountOfMoney(0);
+    private AmountOfMoney total = new AmountOfMoney(0);
+    private int transactionNO = 0;
     @Override
     public void newPayment(AmountOfMoney amountPaid) {
+        total.add(amountPaid);
+        transactionNO++;
         LogToFile log = new LogToFile("revenueLog.txt");
+        log.writeToFile(total.toString()+" Transaction: "+ transactionNO + "  at:"+ LocalDateTime.now());
         
     }
     

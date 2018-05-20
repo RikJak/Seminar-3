@@ -12,6 +12,7 @@ import se.kth.iv1350.integration.Printer;
 import se.kth.iv1350.integration.Item;
 import se.kth.iv1350.integration.RegistryCreator;
 import se.kth.iv1350.integration.ItemNotFoundException;
+import se.kth.iv1350.view.TotalRevenueView;
 
 /**
  * This class handles the interaction between the 'user' and the program itself. It delegates calls from the view to the correct place.
@@ -119,6 +120,13 @@ public class Controller {
      */
     public AmountOfMoney getCashRegisterBalance(){
        return cashRegister.getBalance();
+    }
+    /**
+     * Sets the viewer that is to be used by the cashRegister.
+     * @param viewer is the TotalRevenueView to be used by the cash Register
+     */
+    public void addObserver(TotalRevenueView viewer) {
+        cashRegister.setObserver(viewer);
     }
 
 }

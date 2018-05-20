@@ -16,9 +16,9 @@ public class RegistryCreator {
      * Creates all registries.
      */
     public RegistryCreator() {
-        itemRegistry = new ItemRegistry();
+        itemRegistry = ItemRegistry.getInstanceOf();
         externalSystems = new ExternalSystems();
-        discountRegistry = new DiscountRegistry();
+        discountRegistry = DiscountRegistry.getInstance();
     }
 
     /**

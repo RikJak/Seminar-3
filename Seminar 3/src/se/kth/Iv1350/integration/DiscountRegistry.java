@@ -12,7 +12,7 @@ import java.util.*;
  */
 
 public class DiscountRegistry {
-
+        private static final DiscountRegistry DISCOUNT_REGISTRY = new DiscountRegistry();
 	private HashMap<Integer,Double> elligibleID;
 
     /**
@@ -35,7 +35,7 @@ public class DiscountRegistry {
     /**
      *This method initializes the database.
      */
-    public DiscountRegistry() {
+    private DiscountRegistry() {
             elligibleID = new HashMap<Integer, Double>();
            elligibleID.put(new Integer(19931128), 0.1);
            elligibleID.put(new Integer(19980523), 0.5);
@@ -44,5 +44,7 @@ public class DiscountRegistry {
            elligibleID.put(new Integer(19911121), 1.11);
 
 	}
-
+    public static DiscountRegistry getInstance(){
+        return DISCOUNT_REGISTRY;
+    }
 }

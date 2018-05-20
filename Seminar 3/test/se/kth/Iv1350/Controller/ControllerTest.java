@@ -51,6 +51,7 @@ public class ControllerTest {
 
     /**
      * Test of scanItem method, of class Controller.
+     * @throws java.lang.Exception
      */
     @Test
     public void testScanItem_int_int() throws Exception {

@@ -4,7 +4,7 @@ import se.kth.iv1350.utilities.AmountOfMoney;
 import java.util.*;
 
 /**
- * This is a mock database containing Items. It is a singelton
+ * This is a mock database containing Items. It is a singleton
  *
  * @author Rikard
  */
@@ -14,26 +14,15 @@ public class ItemRegistry {
     private HashMap<ItemIdentifier, Item> itemRegistry;
     private ItemIdentifier crashDatabase = new ItemIdentifier(666);
 
+
+
     /**
-     * Retrieves an item from the registry.
-     *
-     * @param itemID identifies which item is sought.
-     * @return the item matching the provided ID.
-     * @throws se.kth.iv1350.integration.ItemNotFoundException
+     * Returns the itemRegistry
+     * @return the itemRegistry
      */
-    public Item getItem(int itemID) throws ItemNotFoundException, DatabaseFailureException {
-        ItemIdentifier ID = new ItemIdentifier(itemID);
-        if (ID.equals(crashDatabase)) {
-            throw new DatabaseFailureException(itemID);
-        }
-        if (itemRegistry.containsKey(ID)) {
-            return itemRegistry.get(ID);
-        } else {
-            throw new ItemNotFoundException(itemID);
-        }
-
+    public static ItemRegistry getInstanceOf() {
+        return ITEM_REGISTRY;
     }
-
     /**
      * Initializes the registry. Items are created and entered into the
      * registry.
@@ -65,12 +54,24 @@ public class ItemRegistry {
         itemRegistry.put(baseball.getItemID(), baseball);
 
     }
-
-    /**
-     * Returns the itemRegistry
-     * @return the itemRegistry
+        /**
+     * Retrieves an item from the registry.
+     *
+     * @param itemID identifies which item is sought.
+     * @return the item matching the provided ID.
+     * @throws se.kth.iv1350.integration.ItemNotFoundException
      */
-    public static ItemRegistry getInstanceOf() {
-        return ITEM_REGISTRY;
+    public Item getItem(int itemID) throws ItemNotFoundException, DatabaseFailureException {
+        ItemIdentifier ID = new ItemIdentifier(itemID);
+        if (ID.equals(crashDatabase)) {
+            throw new DatabaseFailureException(itemID);
+        }
+        if (itemRegistry.containsKey(ID)) {
+            return itemRegistry.get(ID);
+        } else {
+            throw new ItemNotFoundException(itemID);
+        }
+
     }
+
 }

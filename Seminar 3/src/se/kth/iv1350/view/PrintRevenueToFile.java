@@ -16,6 +16,7 @@ import se.kth.iv1350.utilities.AmountOfMoney;
 public class PrintRevenueToFile implements TotalRevenueView{
     private AmountOfMoney total = new AmountOfMoney(0);
     private int transactionNO = 0;
+    LogToFile log = new LogToFile("revenueLog.txt");
 
     /**
      *  Updates the revenue with the value of the last transaction and then prints it to a file.
@@ -25,7 +26,7 @@ public class PrintRevenueToFile implements TotalRevenueView{
     public void newPayment(AmountOfMoney amountPaid) {
         total.add(amountPaid);
         transactionNO++;
-        LogToFile log = new LogToFile("revenueLog.txt");
+        
         log.writeToFile(total.toString()+" Transaction: "+ transactionNO + "  at:"+ LocalDateTime.now());
         
     }

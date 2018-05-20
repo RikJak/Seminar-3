@@ -7,8 +7,9 @@ import java.util.List;
 import se.kth.iv1350.view.TotalRevenueView;
 
 /**
- * This class handles payments. 
- * It contains a balance that is consistent between transactions. 
+ * This class handles payments. It contains a balance that is consistent between
+ * transactions.
+ *
  * @author Rikard
  */
 public class CashRegister {
@@ -17,26 +18,38 @@ public class CashRegister {
     private List<TotalRevenueView> revenueObservers = new ArrayList<>();
 
     /**
-     * This method receives an amount of money from the customer as well as how much is to be paid.
-     * It calls any observers it has with the data it received.
+     * This method receives an amount of money from the customer as well as how
+     * much is to be paid. It calls any observers it has with the data it
+     * received.
+     *
      * @param amountPaid the amount of money paid by the customer.
      * @param finalPrice the price to be paid.
-     * @return the difference between the two amounts. The change given back to the customer.
+     * @return the difference between the two amounts. The change given back to
+     * the customer.
      * @throws se.kth.iv1350.model.InsufficientFundsException
      */
     public AmountOfMoney registerPayment(AmountOfMoney amountPaid, AmountOfMoney finalPrice) throws InsufficientFundsException {
 
         AmountOfMoney change = calculateChange(amountPaid, finalPrice);
-        for(TotalRevenueView display:revenueObservers){
-        display.newPayment(finalPrice);
+        for (TotalRevenueView display : revenueObservers) {
+            display.newPayment(finalPrice);
         }
         return change;
 
     }
 
-    private AmountOfMoney calculateChange(AmountOfMoney amountPaid,AmountOfMoney finalPrice) throws InsufficientFundsException {
+    /**
+     * Adds an observer to the list.
+     *
+     * @param viewer the observer that is to be added;
+     */
+    public void setObserver(TotalRevenueView viewer) {
+        this.revenueObservers.add(viewer);
+    }
+
+    private AmountOfMoney calculateChange(AmountOfMoney amountPaid, AmountOfMoney finalPrice) throws InsufficientFundsException {
         double change = amountPaid.getAmount() - finalPrice.getAmount();
-        
+
         if (change < 0) {
             String errorMessage = "You did not pay enough money, you are missing " + new AmountOfMoney(-change, amountPaid.getCurrency()).toString();
             throw new InsufficientFundsException(errorMessage);
@@ -47,8 +60,9 @@ public class CashRegister {
     }
 
     /**
-     * Updates the amount of money in the cash register. 
-     * It checks if the amount entered is more than 0, and if not it will throw an exception.
+     * Updates the amount of money in the cash register. It checks if the amount
+     * entered is more than 0, and if not it will throw an exception.
+     *
      * @param totalPrice the amount of money to be added to the cash register.
      * @throws InvalidParameterException
      */
@@ -67,25 +81,22 @@ public class CashRegister {
     public CashRegister(AmountOfMoney balance) {
         this.balance = balance;
     }
+
     /**
-     * Second constructor that takes and implementation of the the TotalRevenueView and adds it to the list of observers.
+     * Second constructor that takes and implementation of the the
+     * TotalRevenueView and adds it to the list of observers.
+     *
      * @param balance is used to set the starting balance
      * @param view is used to display something from the program.
      */
-    public CashRegister(AmountOfMoney balance,TotalRevenueView view) {
+    public CashRegister(AmountOfMoney balance, TotalRevenueView view) {
         this.balance = balance;
         this.revenueObservers.add(view);
-    }
-    /**
-     * Adds an observer to the list.
-     * @param viewer the observer that is to be added;
-     */
-    public void setObserver(TotalRevenueView viewer){
-        this.revenueObservers.add(viewer);
     }
 
     /**
      * Returns the current balance.
+     *
      * @return the current balance.
      */
     public AmountOfMoney getBalance() {

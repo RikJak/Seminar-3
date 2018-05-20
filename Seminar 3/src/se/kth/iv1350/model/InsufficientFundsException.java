@@ -2,7 +2,7 @@ package se.kth.iv1350.model;
 
 
 /**
- *
+ * This exception is throw if the uses does not enter enough money 
  * @author Rikard
  */
 public class InsufficientFundsException extends Exception {

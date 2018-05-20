@@ -18,3 +18,9 @@
 2532,50 sek Transaction: 2  at:2018-05-20T14:53:20.731
 2507,50 sek Transaction: 1  at:2018-05-20T14:53:23.484
 2532,50 sek Transaction: 2  at:2018-05-20T14:53:23.497
+2507,50 sek Transaction: 1  at:2018-05-20T14:59:02.125
+2532,50 sek Transaction: 2  at:2018-05-20T14:59:02.135
+2507,50 sek Transaction: 1  at:2018-05-20T14:59:03.991
+2532,50 sek Transaction: 2  at:2018-05-20T14:59:04.004
+2507,50 sek Transaction: 1  at:2018-05-20T15:05:50.052
+2532,50 sek Transaction: 2  at:2018-05-20T15:05:50.062

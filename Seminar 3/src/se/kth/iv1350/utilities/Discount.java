@@ -18,7 +18,7 @@ public class Discount {
     
     /**
      * Gets the discount rate.
-     * @return the dicount rate
+     * @return the discount rate
      */
     public double getDiscount() {
         return disountRate;

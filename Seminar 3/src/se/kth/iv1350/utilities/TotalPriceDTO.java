@@ -24,7 +24,10 @@ public class TotalPriceDTO {
     public AmountOfMoney getTotalPrice() {
         return totalPrice;
     }
-    
+    /**
+     * String representation of this object
+     * @return the value of this object
+     */
     public String toString(){
         return totalPrice.toString();
     }

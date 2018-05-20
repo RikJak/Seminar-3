@@ -11,7 +11,7 @@ import se.kth.iv1350.controller.Controller;
 import se.kth.iv1350.integration.DatabaseFailureException;
 
 /**
- *
+ * The main method for this program. It creates all objects that are live through the whole program.
  * @author Rikard
  */
 public class Main {

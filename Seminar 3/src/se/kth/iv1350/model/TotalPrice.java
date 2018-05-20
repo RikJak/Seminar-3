@@ -43,7 +43,7 @@ public class TotalPrice {
 
     /**
      * *Gets the current price.
-     * @return
+     * @return current price
      */
     public AmountOfMoney getPrice() {
 		return price;

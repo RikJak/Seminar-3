@@ -48,13 +48,16 @@ public class SaleDTO {
     }
 
     /**
-     *
+     * Returns all sold items
      * @return all items scanned so far.
      */
     public SoldItems getSoldItems() {
         return soldItems;
     }
-    
+    /**
+     * String for this object
+     * @return the string for this object
+     */
     public String toString(){
         String saleInfo = "Current total: " + runningTotal.toString() +"\n Last sold Item: " + lastSoldItem.toString() +"\n Price: " + lastSoldItem.getPrice();
         return saleInfo;

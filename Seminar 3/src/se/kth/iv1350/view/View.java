@@ -23,7 +23,7 @@ public class View {
     private ArrayList<TotalRevenueView> display = new ArrayList<>();
 
     /**
-     * Creates the View
+     * Creates the View and adds observers to the cashRegister
      *
      * @param contr the controller for this program.
      */

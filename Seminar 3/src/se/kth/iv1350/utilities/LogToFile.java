@@ -20,8 +20,8 @@ public class LogToFile {
     File log;
     
     /**
-     *
-     * @param fileName
+     * Initializes the logger
+     * @param fileName name of the file that shall be written to.
      */
     public LogToFile(String fileName) {
         setFile(fileName);

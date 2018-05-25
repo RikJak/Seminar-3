@@ -74,7 +74,10 @@ public class ItemRegistry {
         }*/
 
     }
-    
+    /**
+     * Sets which matcher the registry shall use to find the desired item.
+     * @param newMatcher 
+     */
     public void setMatcher(ItemMatcher newMatcher){
         this.matcher = newMatcher;
     }

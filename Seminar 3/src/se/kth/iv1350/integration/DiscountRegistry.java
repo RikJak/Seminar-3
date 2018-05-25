@@ -7,7 +7,7 @@ import java.util.*;
 */
 
 /**
- *This class is a mock database containing  customer IDs and their associated discounts. It is a singelton.
+ *This class is a mock database containing  customer IDs and their associated discounts. It is a singleton.
  * @author Rikard
  */
 

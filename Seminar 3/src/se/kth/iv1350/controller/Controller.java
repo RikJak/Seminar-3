@@ -127,7 +127,7 @@ public class Controller {
      * @param viewer is the TotalRevenueView to be used by the cash Register
      */
     public void addObserver(TotalRevenueView viewer) {
-        cashRegister.setObserver(viewer);
+        cashRegister.addObserver(viewer);
     }
 
 }

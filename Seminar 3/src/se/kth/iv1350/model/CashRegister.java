@@ -43,7 +43,7 @@ public class CashRegister {
      *
      * @param viewer the observer that is to be added;
      */
-    public void setObserver(TotalRevenueView viewer) {
+    public void addObserver(TotalRevenueView viewer) {
         this.revenueObservers.add(viewer);
     }
 

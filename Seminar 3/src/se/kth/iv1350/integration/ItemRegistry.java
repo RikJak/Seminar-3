@@ -13,7 +13,7 @@ public class ItemRegistry {
     private static final ItemRegistry ITEM_REGISTRY = new ItemRegistry();
     private HashMap<ItemIdentifier, Item> itemRegistry;
     private ItemIdentifier crashDatabase = new ItemIdentifier(666);
-
+    private ItemMatcher matcher = new ItemIDMatcher();
 
 
     /**
@@ -61,17 +61,22 @@ public class ItemRegistry {
      * @return the item matching the provided ID.
      * @throws se.kth.iv1350.integration.ItemNotFoundException
      */
-    public Item getItem(int itemID) throws ItemNotFoundException, DatabaseFailureException {
-        ItemIdentifier ID = new ItemIdentifier(itemID);
+    public Item getItem(int itemID, Item searchedItem) throws ItemNotFoundException, DatabaseFailureException {
+        ItemIdentifier ID = searchedItem.getItemID();
         if (ID.equals(crashDatabase)) {
-            throw new DatabaseFailureException(itemID);
+            throw new DatabaseFailureException(ID.getItemID());
         }
-        if (itemRegistry.containsKey(ID)) {
+        return matcher.getItem(searchedItem, itemRegistry);
+        /*if (itemRegistry.containsKey(ID)) {
             return itemRegistry.get(ID);
         } else {
             throw new ItemNotFoundException(itemID);
-        }
+        }*/
 
+    }
+    
+    public void setMatcher(ItemMatcher newMatcher){
+        this.matcher = newMatcher;
     }
 
 }

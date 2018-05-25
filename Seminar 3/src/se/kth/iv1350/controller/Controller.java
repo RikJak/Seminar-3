@@ -10,6 +10,7 @@ import se.kth.iv1350.model.Sale;
 import se.kth.iv1350.model.InsufficientFundsException;
 import se.kth.iv1350.integration.Printer;
 import se.kth.iv1350.integration.Item;
+import se.kth.iv1350.integration.ItemDescription;
 import se.kth.iv1350.integration.RegistryCreator;
 import se.kth.iv1350.integration.ItemNotFoundException;
 import se.kth.iv1350.view.TotalRevenueView;
@@ -60,7 +61,21 @@ public class Controller {
      * @throws se.kth.iv1350.integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
      */
     public SaleDTO scanItem(int quantity, int itemID) throws ItemNotFoundException,DatabaseFailureException{
-        Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID);
+        Item searchedItem = new Item(itemID, null, null, null);
+        return scanItem(quantity,searchedItem);
+        //Item scannedItem = (registryCreator.getItemRegistry()).getItem(itemID, searchedItem);
+        //return sale.sellItem(quantity, scannedItem);
+    }
+    /**
+     * This method retrieves an Item object from the itemRegistry.
+     * This is then passed along to the sale class together with how many of this item are to be added to the current transaction.
+     * @param quantity how many of this Item have been added.
+     * @param searchedItem the item being sought. Data from this is used to get a proper Item from the registry.
+     * @return the DTO containing the current state of the sale.
+     * @throws se.kth.iv1350.integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
+     */
+    public SaleDTO scanItem(int quantity,Item searchedItem) throws ItemNotFoundException,DatabaseFailureException{
+        Item scannedItem = (registryCreator.getItemRegistry()).getItem(0,searchedItem);
         return sale.sellItem(quantity, scannedItem);
     }
     /**

@@ -6,14 +6,14 @@ package se.kth.iv1350.integration;
  * @author Rikard
  */
 public class ItemNotFoundException extends Exception {
-    int itemID;
+    ItemIdentifier itemID;
     /**
      * Creates a new instance of <code>ItemNotFoundException</code> without
      * detail message.
      * @param itemID
      */
-    public ItemNotFoundException(int itemID) {
-        super("The requested item does not exist in the registry. ItemID: "+ itemID);
+    public ItemNotFoundException(ItemIdentifier itemID) {
+        super("The requested item does not exist in the registry. ItemID: "+ itemID.getItemID());
         this.itemID = itemID; 
     }
     /**
@@ -21,7 +21,7 @@ public class ItemNotFoundException extends Exception {
      * @return itemID
      */
     public int getItemID() {
-        return itemID;
+        return itemID.getItemID();
     }
 
     /**

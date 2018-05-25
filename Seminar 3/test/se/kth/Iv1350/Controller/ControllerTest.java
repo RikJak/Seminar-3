@@ -64,7 +64,7 @@ public class ControllerTest {
         instance.startNewSale();
         
         AmountOfMoney expectedTotal = new AmountOfMoney(10000);
-        Item expectedItem = registries.getItemRegistry().getItem(itemID);
+        Item expectedItem = registries.getItemRegistry().getItem(itemID, null);
         SaleDTO result = instance.scanItem(quantity, itemID);
         assertEquals(expectedItem, result.getLastSoldItem());
         assertEquals(expectedTotal,result.getRunningTotal());

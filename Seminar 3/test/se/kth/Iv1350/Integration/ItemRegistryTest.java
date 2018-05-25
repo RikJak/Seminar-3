@@ -49,7 +49,7 @@ public class ItemRegistryTest {
         ItemRegistry instance = ItemRegistry.getInstanceOf();
         Item expResult = new Item(111,new ItemDescription("This is a car"),new AmountOfMoney(10000),"Vehicle");
         try{
-        Item result = instance.getItem(itemID);
+        Item result = instance.getItem(itemID, null);
         assertEquals(expResult.getItemID(), result.getItemID());
         }catch(ItemNotFoundException e){
             System.err.println(e);
@@ -64,7 +64,7 @@ public class ItemRegistryTest {
         ItemRegistry instance = ItemRegistry.getInstanceOf();
         Item expResult = null;
         try{
-        Item result = instance.getItem(itemID);
+        Item result = instance.getItem(itemID, null);
         assertEquals(expResult.getItemID(), result.getItemID());
         }catch(ItemNotFoundException e){
             System.err.println(e);

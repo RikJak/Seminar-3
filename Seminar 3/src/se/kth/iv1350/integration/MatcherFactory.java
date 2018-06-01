@@ -1,6 +1,7 @@
 
 package se.kth.iv1350.integration;
 
+import se.kth.iv1350.utilities.ItemDescriptionMatcher;
 import se.kth.iv1350.utilities.ItemIDMatcher;
 
 /**
@@ -10,18 +11,28 @@ import se.kth.iv1350.utilities.ItemIDMatcher;
  */
 public class MatcherFactory {
     private static final MatcherFactory MATCHER_FACTORY = new MatcherFactory();
-    private ItemMatcher defaultMatcher;
+    private String defaultMatch;
+    private final String DESCRIPTION = "Description";
+    private final String ID = "ID";
     
     private MatcherFactory(){
-        defaultMatcher = new ItemIDMatcher();
+        defaultMatch = ID;
     }
 
     /**
-     * Returns the default ItemMatcher specified at startup
-     * @return The default ItemMatcher implementation.
+     * Returns a new instance of the ItemMatcher set for the factory.
+     * If it doesn't match any of the presets it'll return an instance of an ID matcher.
+     * @return The ItemMatcher implementation specified.
      */
-    public ItemMatcher getDefaultMatcher(){
-        return defaultMatcher;
+    public ItemMatcher getMatcher(){
+        switch(defaultMatch){
+                case(ID):
+                    return new ItemIDMatcher();
+                case(DESCRIPTION):
+                    return new ItemDescriptionMatcher();
+                default:
+                    return new ItemIDMatcher();
+        }
     }
     
     /**
@@ -29,7 +40,11 @@ public class MatcherFactory {
      * @param newDefault the new default matcher.
      */
     public void setDefaultItemMatcher(ItemMatcher newDefault){
-        defaultMatcher = newDefault;
+        if(newDefault instanceof ItemIDMatcher){
+            defaultMatch = ID;
+        }else if(newDefault instanceof ItemDescriptionMatcher){
+            defaultMatch = DESCRIPTION;
+        }
     }
     
     /**

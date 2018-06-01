@@ -68,7 +68,7 @@ public class ItemRegistry {
         if (ID.equals(crashDatabase)) {
             throw new DatabaseFailureException(ID.getItemID());
         }
-        return factory.getDefaultMatcher().getItem(searchedItem, itemRegistry);
+        return factory.getMatcher().getItem(searchedItem, itemRegistry);
 
 
     }

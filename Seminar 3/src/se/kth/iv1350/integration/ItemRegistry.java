@@ -1,5 +1,6 @@
 package se.kth.iv1350.integration;
 
+import se.kth.iv1350.utilities.ItemIDMatcher;
 import se.kth.iv1350.utilities.AmountOfMoney;
 import java.util.*;
 
@@ -14,6 +15,7 @@ public class ItemRegistry {
     private HashMap<ItemIdentifier, Item> itemRegistry;
     private ItemIdentifier crashDatabase = new ItemIdentifier(666);
     private ItemMatcher matcher = new ItemIDMatcher();
+    private MatcherFactory factory = MatcherFactory.getInstanceOf();
 
 
     /**
@@ -57,21 +59,17 @@ public class ItemRegistry {
         /**
      * Retrieves an item from the registry.
      *
-     * @param itemID identifies which item is sought.
+     * @param searchedItem
      * @return the item matching the provided ID.
      * @throws se.kth.iv1350.integration.ItemNotFoundException
      */
-    public Item getItem(int itemID, Item searchedItem) throws ItemNotFoundException, DatabaseFailureException {
+    public Item getItem(Item searchedItem) throws ItemNotFoundException, DatabaseFailureException {
         ItemIdentifier ID = searchedItem.getItemID();
         if (ID.equals(crashDatabase)) {
             throw new DatabaseFailureException(ID.getItemID());
         }
-        return matcher.getItem(searchedItem, itemRegistry);
-        /*if (itemRegistry.containsKey(ID)) {
-            return itemRegistry.get(ID);
-        } else {
-            throw new ItemNotFoundException(itemID);
-        }*/
+        return factory.getDefaultMatcher().getItem(searchedItem, itemRegistry);
+
 
     }
     /**

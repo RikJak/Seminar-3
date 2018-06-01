@@ -8,9 +8,17 @@ package se.kth.iv1350.integration;
 import java.util.HashMap;
 
 /**
- *
+ * 
  * @author Rikard
  */
 public interface ItemMatcher {
+
+    /**
+     *
+     * @param searchedItem
+     * @param registry
+     * @return
+     * @throws ItemNotFoundException
+     */
     public Item getItem(Item searchedItem,HashMap<ItemIdentifier,Item> registry) throws ItemNotFoundException;
 }

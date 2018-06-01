@@ -10,6 +10,10 @@ import se.kth.iv1350.model.InsufficientFundsException;
 import se.kth.iv1350.model.TotalPrice;
 import java.util.Arrays;
 import se.kth.iv1350.integration.DatabaseFailureException;
+import se.kth.iv1350.integration.Item;
+import se.kth.iv1350.integration.ItemDescription;
+import se.kth.iv1350.utilities.ItemDescriptionMatcher;
+import se.kth.iv1350.utilities.ItemIDMatcher;
 
 /**
  * This class simulates the user interface of the program.
@@ -46,11 +50,21 @@ public class View {
         System.out.println("The current balance in the cashRegister is: " + controller.getCashRegisterBalance());
         controller.startNewSale();
         
-
+        Item car  = new Item(111,null,null,null);
+        Item baseBall  = new Item(300,null,null,null);
+        Item banana  = new Item(201,null,null,null);
+        Item bus  = new Item(113,null,null,null);
+        Item appleID = new Item(200, null,null,null);
+         Item appleDESC = new Item(0, new ItemDescription("This is an apple"),null,null);
+        
         try {
-            System.out.println(controller.scanItem(2, 111));
-            System.out.println(controller.scanItem(3, 300));
-            lastScan = controller.scanItem(2, 201);
+            System.out.println(controller.scanItem(2, car));
+            System.out.println(controller.scanItem(3, baseBall));
+            System.out.println(controller.scanItem(1, appleID));
+            controller.setDefaultMatcher(new ItemDescriptionMatcher());
+            System.out.println(controller.scanItem(1, appleDESC));
+            controller.setDefaultMatcher(new ItemIDMatcher());
+            lastScan = controller.scanItem(2, banana);
 
             System.out.println(lastScan);
             //System.out.println(lastScan.getSoldItems());

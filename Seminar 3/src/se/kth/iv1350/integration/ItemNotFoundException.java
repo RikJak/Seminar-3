@@ -19,7 +19,7 @@ public class ItemNotFoundException extends Exception {
         /**
      * Creates a new instance of <code>ItemNotFoundException</code> without
      * detail message.
-     * @param itemID
+     * @param item
      */
     public ItemNotFoundException(Item item) {
         super("The requested item does not exist in the registry. You searched for: "+ item);

@@ -11,8 +11,10 @@ import se.kth.iv1350.model.InsufficientFundsException;
 import se.kth.iv1350.integration.Printer;
 import se.kth.iv1350.integration.Item;
 import se.kth.iv1350.integration.ItemDescription;
+import se.kth.iv1350.integration.ItemMatcher;
 import se.kth.iv1350.integration.RegistryCreator;
 import se.kth.iv1350.integration.ItemNotFoundException;
+import se.kth.iv1350.integration.MatcherFactory;
 import se.kth.iv1350.view.TotalRevenueView;
 
 /**
@@ -75,7 +77,7 @@ public class Controller {
      * @throws se.kth.iv1350.integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
      */
     public SaleDTO scanItem(int quantity,Item searchedItem) throws ItemNotFoundException,DatabaseFailureException{
-        Item scannedItem = (registryCreator.getItemRegistry()).getItem(0,searchedItem);
+        Item scannedItem = (registryCreator.getItemRegistry()).getItem(searchedItem);
         return sale.sellItem(quantity, scannedItem);
     }
     /**
@@ -86,6 +88,17 @@ public class Controller {
      * @throws se.kth.iv1350.integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
      */
      public SaleDTO scanItem( int itemID)throws ItemNotFoundException,DatabaseFailureException {
+
+        return scanItem(1, itemID);
+    }
+     /**
+     * An alternative version of the method above.
+     * It is used if no quantity is used.
+     * @param itemID the item to be added.
+     * @return the DTO containing the current state of the sale.
+     * @throws se.kth.iv1350.integration.ItemNotFoundException Thrown if the provided ID is not associated with an Item
+     */
+     public SaleDTO scanItem(Item itemID)throws ItemNotFoundException,DatabaseFailureException {
 
         return scanItem(1, itemID);
     }
@@ -144,5 +157,13 @@ public class Controller {
     public void addObserver(TotalRevenueView viewer) {
         cashRegister.addObserver(viewer);
     }
+    
+    /**
+     *
+     * @param newMatcher
+     */
+    public void setDefaultMatcher(ItemMatcher newMatcher){
+        MatcherFactory.getInstanceOf().setDefaultItemMatcher(newMatcher);
+   }
 
 }
